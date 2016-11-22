@@ -34,6 +34,8 @@ namespace SerializeAndDeserialize
                 Console.WriteLine(ex.Message);
             }
             Console.ReadLine();
+            try { }
+            catch { }
         }
     }
 }
