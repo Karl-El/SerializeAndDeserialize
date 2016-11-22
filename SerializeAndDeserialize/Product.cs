@@ -34,6 +34,12 @@ namespace SerializeAndDeserialize
             get;
             set;
         }
+        [XmlElement("description")]
+        public Description description
+        {
+            get;
+            set;
+        }
     }
 
     [XmlRoot("price")]
@@ -57,6 +63,24 @@ namespace SerializeAndDeserialize
     [XmlRoot("description")]
     public class Description
     {
+        [XmlElement("color")]
+        public string Color
+        {
+            get;
+            set;
+        }
+        [XmlElement("size")]
+        public string Size
+        {
+            get;
+            set;
+        }
+        [XmlElement("weight")]
+        public string Weight
+        {
+            get;
+            set;
+        }
 
     }
 
