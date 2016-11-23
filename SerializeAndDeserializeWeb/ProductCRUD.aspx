@@ -10,8 +10,8 @@
                 <div class="panel-heading"><h4>Product Details</h4></div>
                 <div class="panel-body">
                     <div class="row">
-                        <p class="col-md-3">
-                            <asp:Label ID="Label1" runat="server" Text="ID" CssClass="control-label"></asp:Label>
+                        <p class="col-md-3"> 
+                            <asp:Label ID="Label1" runat="server" Text="ID" CssClass="control-label"> </asp:Label>
                             <asp:TextBox ID="_txtID" runat="server" CssClass="form-control"></asp:TextBox>
                         </p>
                         <p class="col-md-9">
