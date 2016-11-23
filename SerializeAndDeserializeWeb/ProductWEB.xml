@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<product xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0001" categoryname="CATEGORY001">
-  <name>PRODNAME0001</name>
-  <price unit="PHP">1000</price>
-  <description>
-    <color>#ff8080</color>
-    <size>4</size>
-    <weight>100g</weight>
-  </description>
-</product>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product id="0001" categoryname="CATEGORY002">
+    <name>PRODNAME0002</name>
+    <price unit="USD">3000</price>
+    <description>
+      <color>#000000</color>
+      <size>2</size>
+      <weight>100g</weight>
+    </description>
+  </Product>
+</ArrayOfProduct>

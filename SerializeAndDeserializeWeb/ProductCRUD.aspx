@@ -55,9 +55,9 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-body text-center">
+        <div class="panel panel-info panel-body text-center">
             <asp:Button ID="_btnSave" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="_btnSave_Click"/>
-            <asp:Button ID="_btnClear" runat="server" Text="Clear" CssClass="btn btn-danger"/>
+            <asp:Button ID="_btnClear" runat="server" Text="Clear" CssClass="btn btn-danger" OnClientClick="this.form.reset();return false;"/>
         </div>
     </div>
     <div class="col-md-2"></div>
