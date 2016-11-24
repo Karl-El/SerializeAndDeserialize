@@ -69,7 +69,11 @@ namespace SerializeAndDeserializeWeb
                     XDOC.Load(XmlFileFullPath);
                     XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
                     XmlNode XNODE = XDOC.CreateNode(XmlNodeType.Element, "ArrayOfProduct", null);
-                    StringWriter SW = new StringWriter();
+                    XmlSerializerNamespaces NS = new XmlSerializerNamespaces();
+                    StringWriter StringWriter = new StringWriter();
+                    NS.Add("", "");
+                    XmlWriterSettings XWriterSetting = new XmlWriterSettings();
+                    XWriterSetting.OmitXmlDeclaration = true;
                     ListProducts.Add(new Product
                     {
                         ID = _txtID.Text.Trim(),
@@ -78,11 +82,15 @@ namespace SerializeAndDeserializeWeb
                         price = new Price { Value = Convert.ToInt32(_txtPrice.Text), Unit = _txtUnit.Text.Trim() },
                         description = new Description { Color = _txtColor.Text.Trim(), Size = _txtSize.Text.Trim(), Weight = _txtWeight.Text.Trim() }
                     });
-                    xmlserializer.Serialize(SW, ListProducts);
-                    XNODE.InnerXml = Convert.ToString(SW);
-                    XDOC.DocumentElement.AppendChild(XNODE);
+                    using (XmlWriter XWriter = XmlWriter.Create(StringWriter, XWriterSetting))
+                    {
+                        xmlserializer.Serialize(XWriter, ListProducts, NS);
+                    }
+                    XNODE.InnerXml = Convert.ToString(StringWriter);
+                    XmlNode XNODEBind = XNODE.SelectSingleNode("ArrayOfProduct");
+                    XDOC.DocumentElement.AppendChild(XNODEBind);
                     XDOC.Save(XmlFileFullPath);
-                    message = "Saved meow"; AlertClear();
+                    message = "Saved"; AlertClear();
                 }
                 else
                 {   //Not Existing and adding one Record
