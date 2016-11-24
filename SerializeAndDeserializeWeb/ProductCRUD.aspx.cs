@@ -34,25 +34,28 @@ namespace SerializeAndDeserializeWeb
 
         protected void _btnSave_Click(object sender, EventArgs e)
         {
-            ;
             if (!File.Exists(XmlFileFullPath))
             {   //Not Existing and adding one Record
-                //Serialize One Item only        
-                Product product = new Product
+                //List Serialize
+                List<Product> ListProducts = new List<Product>();
+                ListProducts.Add(new Product
                 {
                     ID = _txtID.Text.Trim(),
                     Name = _txtName.Text.Trim(),
                     CategoryName = _txtCategory.Text.Trim(),
                     price = new Price { Value = Convert.ToInt32(_txtPrice.Text), Unit = _txtUnit.Text.Trim() },
                     description = new Description { Color = _txtColor.Text.Trim(), Size = _txtSize.Text.Trim(), Weight = _txtWeight.Text.Trim() }
-                };
-                XmlSerializer xmlserializer = new XmlSerializer(typeof(Product));
+                });
+                XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
                 //string PathName = "C:/Users/ccruz1/Documents/visual studio 2015/Projects/SerializeAndDeserialize/SerializeAndDeserializeWeb/";
                 StreamWriter SW = new StreamWriter(XmlFileFullPath);
-                xmlserializer.Serialize(SW, product);
+                foreach (Product product in ListProducts)
+                {
+                    xmlserializer.Serialize(SW, ListProducts);
+                }
                 SW.Close();
                 message = "Saved"; AlertClear();
-                //End of Serialize One Item only
+                //End of List Serizalize
             }
             else
             {   //Existing and Counting the records
@@ -62,43 +65,47 @@ namespace SerializeAndDeserializeWeb
                 //End of Node Count
                 if (nodeCount >= 0)
                 { //Records exist and append the new data
-                        XmlDocument XDOC = new XmlDocument();
-                        XDOC.Load(XmlFileFullPath);
-                        XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
-                        XmlNode XNODE = XDOC.CreateNode(XmlNodeType.Element, "product", null);
-                        StringWriter SW = new StringWriter();
-                        ListProducts.Add(new Product
-                        {
-                            ID = _txtID.Text.Trim(),
-                            Name = _txtName.Text.Trim(),
-                            CategoryName = _txtCategory.Text.Trim(),
-                            price = new Price { Value = Convert.ToInt32(_txtPrice.Text), Unit = _txtUnit.Text.Trim() },
-                            description = new Description { Color = _txtColor.Text.Trim(), Size = _txtSize.Text.Trim(), Weight = _txtWeight.Text.Trim() }
-                        });
-                        xmlserializer.Serialize(SW, ListProducts);
-                        XNODE.InnerXml = Convert.ToString(SW);
-                        XDOC.DocumentElement.AppendChild(XNODE);
-                        XDOC.Save(XmlFileFullPath);
-                        message = "Saved meow"; AlertClear();
-                }
-                else
-                {   //Empty file/record and adding one 
-                    //Serialize One Item only        
-                    Product product = new Product
+                    XmlDocument XDOC = new XmlDocument();
+                    XDOC.Load(XmlFileFullPath);
+                    XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
+                    XmlNode XNODE = XDOC.CreateNode(XmlNodeType.Element, "ArrayOfProduct", null);
+                    StringWriter SW = new StringWriter();
+                    ListProducts.Add(new Product
                     {
                         ID = _txtID.Text.Trim(),
                         Name = _txtName.Text.Trim(),
                         CategoryName = _txtCategory.Text.Trim(),
                         price = new Price { Value = Convert.ToInt32(_txtPrice.Text), Unit = _txtUnit.Text.Trim() },
                         description = new Description { Color = _txtColor.Text.Trim(), Size = _txtSize.Text.Trim(), Weight = _txtWeight.Text.Trim() }
-                    };
-                    XmlSerializer xmlserializer = new XmlSerializer(typeof(Product));
+                    });
+                    xmlserializer.Serialize(SW, ListProducts);
+                    XNODE.InnerXml = Convert.ToString(SW);
+                    XDOC.DocumentElement.AppendChild(XNODE);
+                    XDOC.Save(XmlFileFullPath);
+                    message = "Saved meow"; AlertClear();
+                }
+                else
+                {   //Not Existing and adding one Record
+                    //List Serialize
+                    List<Product> ListProducts = new List<Product>();
+                    ListProducts.Add(new Product
+                    {
+                        ID = _txtID.Text.Trim(),
+                        Name = _txtName.Text.Trim(),
+                        CategoryName = _txtCategory.Text.Trim(),
+                        price = new Price { Value = Convert.ToInt32(_txtPrice.Text), Unit = _txtUnit.Text.Trim() },
+                        description = new Description { Color = _txtColor.Text.Trim(), Size = _txtSize.Text.Trim(), Weight = _txtWeight.Text.Trim() }
+                    });
+                    XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
                     //string PathName = "C:/Users/ccruz1/Documents/visual studio 2015/Projects/SerializeAndDeserialize/SerializeAndDeserializeWeb/";
                     StreamWriter SW = new StreamWriter(XmlFileFullPath);
-                    xmlserializer.Serialize(SW, product);
+                    foreach (Product product in ListProducts)
+                    {
+                        xmlserializer.Serialize(SW, ListProducts);
+                    }
                     SW.Close();
                     message = "Saved"; AlertClear();
-                    //End of Serialize One Item only
+                    //End of List Serizalize
                 }
             }
             //message = "Saved! " + nodeCount + " Total Records"; AlertClear();
