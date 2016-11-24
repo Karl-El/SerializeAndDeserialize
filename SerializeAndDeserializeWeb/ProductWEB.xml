@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Product id="0001" categoryname="CATEGORYNAME001">
-    <name>PRODUCTNAME0001</name>
+  <Product id="0002" categoryname="CATEGORYNAME002">
+    <name>PRODUCTNAME0002</name>
     <price unit="PHP">1000</price>
     <description>
       <color>#000000</color>
@@ -9,15 +9,13 @@
       <weight>100g</weight>
     </description>
   </Product>
-  <ArrayOfProduct>
-    <Product id="0002" categoryname="CATEGORYNAME002">
-      <name>PRODUCTNAME0002</name>
-      <price unit="USD">2000</price>
-      <description>
-        <color>#000000</color>
-        <size>2</size>
-        <weight>200g</weight>
-      </description>
-    </Product>
-  </ArrayOfProduct>
+  <product id="0004" categoryname="CATEGORYNAME004">
+    <name>PRODUCTNAME0004</name>
+    <price unit="EUR">4000</price>
+    <description>
+      <color>#000000</color>
+      <size>1</size>
+      <weight>400g</weight>
+    </description>
+  </product>
 </ArrayOfProduct>

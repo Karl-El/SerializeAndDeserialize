@@ -32,6 +32,8 @@ namespace SerializeAndDeserializeWeb
         {
         }
 
+        public void BindProdGrid() { }
+
         protected void _btnSave_Click(object sender, EventArgs e)
         {
             if (!File.Exists(XmlFileFullPath))
@@ -47,14 +49,13 @@ namespace SerializeAndDeserializeWeb
                     description = new Description { Color = _txtColor.Text.Trim(), Size = _txtSize.Text.Trim(), Weight = _txtWeight.Text.Trim() }
                 });
                 XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
-                //string PathName = "C:/Users/ccruz1/Documents/visual studio 2015/Projects/SerializeAndDeserialize/SerializeAndDeserializeWeb/";
-                StreamWriter SW = new StreamWriter(XmlFileFullPath);
+                string PathName = "C:/Users/ccruz1/Documents/visual studio 2015/Projects/SerializeAndDeserialize/SerializeAndDeserializeWeb/";
+                StreamWriter SW = new StreamWriter(PathName + "ProductWEB.xml");
                 foreach (Product product in ListProducts)
                 {
                     xmlserializer.Serialize(SW, ListProducts);
                 }
                 SW.Close();
-                message = "Saved"; AlertClear();
                 //End of List Serizalize
             }
             else
@@ -67,27 +68,27 @@ namespace SerializeAndDeserializeWeb
                 { //Records exist and append the new data
                     XmlDocument XDOC = new XmlDocument();
                     XDOC.Load(XmlFileFullPath);
-                    XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
-                    XmlNode XNODE = XDOC.CreateNode(XmlNodeType.Element, "ArrayOfProduct", null);
+                    XmlSerializer xmlserializer = new XmlSerializer(typeof(Product));
+                    XmlNode XNODE = XDOC.CreateNode(XmlNodeType.Element, "product", null);
                     XmlSerializerNamespaces NS = new XmlSerializerNamespaces();
                     StringWriter StringWriter = new StringWriter();
                     NS.Add("", "");
                     XmlWriterSettings XWriterSetting = new XmlWriterSettings();
                     XWriterSetting.OmitXmlDeclaration = true;
-                    ListProducts.Add(new Product
+                    Product product = new Product
                     {
                         ID = _txtID.Text.Trim(),
                         Name = _txtName.Text.Trim(),
                         CategoryName = _txtCategory.Text.Trim(),
                         price = new Price { Value = Convert.ToInt32(_txtPrice.Text), Unit = _txtUnit.Text.Trim() },
                         description = new Description { Color = _txtColor.Text.Trim(), Size = _txtSize.Text.Trim(), Weight = _txtWeight.Text.Trim() }
-                    });
+                    };
                     using (XmlWriter XWriter = XmlWriter.Create(StringWriter, XWriterSetting))
                     {
-                        xmlserializer.Serialize(XWriter, ListProducts, NS);
+                        xmlserializer.Serialize(XWriter, product, NS);
                     }
                     XNODE.InnerXml = Convert.ToString(StringWriter);
-                    XmlNode XNODEBind = XNODE.SelectSingleNode("ArrayOfProduct");
+                    XmlNode XNODEBind = XNODE.SelectSingleNode("product");
                     XDOC.DocumentElement.AppendChild(XNODEBind);
                     XDOC.Save(XmlFileFullPath);
                     message = "Saved"; AlertClear();
@@ -105,18 +106,17 @@ namespace SerializeAndDeserializeWeb
                         description = new Description { Color = _txtColor.Text.Trim(), Size = _txtSize.Text.Trim(), Weight = _txtWeight.Text.Trim() }
                     });
                     XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
-                    //string PathName = "C:/Users/ccruz1/Documents/visual studio 2015/Projects/SerializeAndDeserialize/SerializeAndDeserializeWeb/";
-                    StreamWriter SW = new StreamWriter(XmlFileFullPath);
+                    string PathName = "C:/Users/ccruz1/Documents/visual studio 2015/Projects/SerializeAndDeserialize/SerializeAndDeserializeWeb/";
+                    StreamWriter SW = new StreamWriter(PathName + "ProductWEB.xml");
                     foreach (Product product in ListProducts)
                     {
                         xmlserializer.Serialize(SW, ListProducts);
                     }
                     SW.Close();
-                    message = "Saved"; AlertClear();
                     //End of List Serizalize
                 }
             }
-            //message = "Saved! " + nodeCount + " Total Records"; AlertClear();
+            message = "Saved! " + nodeCount + " Total Records"; AlertClear();
 
 
             /*//List Serialize
