@@ -32,7 +32,9 @@ namespace SerializeAndDeserializeWeb
         {
         }
 
-        public void BindProdGrid() { }
+        public void BindProdGrid()
+        {
+        }
 
         protected void _btnSave_Click(object sender, EventArgs e)
         {
@@ -69,7 +71,7 @@ namespace SerializeAndDeserializeWeb
                     XmlDocument XDOC = new XmlDocument();
                     XDOC.Load(XmlFileFullPath);
                     XmlSerializer xmlserializer = new XmlSerializer(typeof(Product));
-                    XmlNode XNODE = XDOC.CreateNode(XmlNodeType.Element, "product", null);
+                    XmlNode XNODE = XDOC.CreateNode(XmlNodeType.Element, "ArrayOfProduct", null);
                     XmlSerializerNamespaces NS = new XmlSerializerNamespaces();
                     StringWriter StringWriter = new StringWriter();
                     NS.Add("", "");

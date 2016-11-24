@@ -2,20 +2,20 @@
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product id="0002" categoryname="CATEGORYNAME002">
     <name>PRODUCTNAME0002</name>
-    <price unit="PHP">1000</price>
+    <price unit="USD">2000</price>
     <description>
       <color>#000000</color>
       <size>1</size>
-      <weight>100g</weight>
+      <weight>200g</weight>
     </description>
   </Product>
-  <product id="0004" categoryname="CATEGORYNAME004">
-    <name>PRODUCTNAME0004</name>
-    <price unit="EUR">4000</price>
+  <product id="0005" categoryname="CATEGORYNAME005">
+    <name>PRODUCTNAME0005</name>
+    <price unit="EUR">5000</price>
     <description>
       <color>#000000</color>
-      <size>1</size>
-      <weight>400g</weight>
+      <size>3</size>
+      <weight>500g</weight>
     </description>
   </product>
 </ArrayOfProduct>
