@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <product xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0001" categoryname="CATEGORYNAME001">
   <name>PRODUCTNAME0001</name>
   <price unit="PHP">1000</price>
@@ -7,4 +7,17 @@
     <size>1</size>
     <weight>100g</weight>
   </description>
+  <ArrayOfProduct>
+    <?xml version="1.0" encoding="utf-16"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product id="0002" categoryname="CATEGORYNAME003">
+    <name>PRODUCTNAME0003</name>
+    <price unit="AUD">3000</price>
+    <description>
+      <color>#000000</color>
+      <size>1</size>
+      <weight>300g</weight>
+    </description>
+  </Product>
+</ArrayOfProduct></ArrayOfProduct>
 </product>
