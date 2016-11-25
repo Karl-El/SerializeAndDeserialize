@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Product id="0002" categoryname="CATEGORYNAME002">
-    <name>PRODUCTNAME0002</name>
-    <price unit="USD">2000</price>
+  <product id="0004" categoryname="CATEGORYNAME004">
+    <name>PRODUCTNAME0004</name>
+    <price unit="AUD">4000</price>
     <description>
       <color>#000000</color>
-      <size>1</size>
-      <weight>200g</weight>
+      <size>4</size>
+      <weight>400g</weight>
     </description>
-  </Product>
-  <product id="0005" categoryname="CATEGORYNAME005">
-    <name>PRODUCTNAME0005</name>
-    <price unit="EUR">5000</price>
+  </product>
+  <product id="0003" categoryname="CATEGORYNAME003">
+    <name>PRODUCTNAME0003</name>
+    <price unit="AUD">3000</price>
     <description>
       <color>#000000</color>
       <size>3</size>
-      <weight>500g</weight>
+      <weight>300g</weight>
     </description>
   </product>
 </ArrayOfProduct>
