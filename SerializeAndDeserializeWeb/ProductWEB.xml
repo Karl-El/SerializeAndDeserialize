@@ -36,4 +36,13 @@
       <weight>200g</weight>
     </description>
   </product>
+  <product id="0006" categoryname="CATEGORYNAME006">
+    <name>PRODUCTNAME0006</name>
+    <price unit="EUR">6000</price>
+    <description>
+      <color>#000000</color>
+      <size>6</size>
+      <weight>600g</weight>
+    </description>
+  </product>
 </ArrayOfProduct>

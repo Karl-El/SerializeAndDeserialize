@@ -54,10 +54,8 @@ namespace SerializeAndDeserializeWeb
                 //Console.WriteLine("Weight    : " + product.description.Weight);
                 //Console.WriteLine();
                 //Console.WriteLine("♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫");
-                string id = "ID";
-                id += product.ID;
-                Label9.Text = id;
             }
+            SR.Close();
         }
 
         protected void _btnSave_Click(object sender, EventArgs e)
