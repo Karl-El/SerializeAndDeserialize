@@ -45,4 +45,13 @@
       <weight>600g</weight>
     </description>
   </product>
+  <product id="0002" categoryname="CATEGORYNAME003">
+    <name>PRODUCTNAME0001</name>
+    <price unit="PHP">1000</price>
+    <description>
+      <color>#00ff00</color>
+      <size>5464645</size>
+      <weight>400g</weight>
+    </description>
+  </product>
 </ArrayOfProduct>

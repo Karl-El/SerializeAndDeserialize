@@ -43,19 +43,20 @@ namespace SerializeAndDeserializeWeb
             List<product> listproduct = (List<product>)xmlserializer.Deserialize(SR);
             foreach (product product in listproduct)
             {
-                //Console.WriteLine();
-                //Console.WriteLine("ID        : " + product.ID);
-                //Console.WriteLine("Name      : " + product.Name);
-                //Console.WriteLine("Category  : " + product.CategoryName);
-                //Console.WriteLine("Price     : " + product.price.Value);
-                //Console.WriteLine("Unit      : " + product.price.Unit);
-                //Console.WriteLine("Color     : " + product.description.Color);
-                //Console.WriteLine("Size      : " + product.description.Size);
-                //Console.WriteLine("Weight    : " + product.description.Weight);
-                //Console.WriteLine();
-                //Console.WriteLine("♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫");
+                // Response.Write ();
+                 Response.Write ("</br>ID        : " + product.ID);
+                 Response.Write ("</br> Name      : " + product.Name);
+                 Response.Write("</br> Category  : " + product.CategoryName);
+                 Response.Write("</br> Price     : " + product.price.Value);
+                 Response.Write("</br> Unit      : " + product.price.Unit);
+                 Response.Write("</br> Color     : " + product.description.Color);
+                 Response.Write("</br> Size      : " + product.description.Size);
+                 Response.Write("</br> Weight    : " + product.description.Weight);
+                 //Response.Write ();
+                 Response.Write ("</br> ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫ <//br>");
             }
             SR.Close();
+            System.Diagnostics.Debug.WriteLine("Hello!");
         }
 
         protected void _btnSave_Click(object sender, EventArgs e)
