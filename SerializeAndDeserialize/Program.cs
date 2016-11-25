@@ -15,8 +15,8 @@ namespace SerializeAndDeserialize
             //List Serialize
             try
             {
-                List<product> ListProducts = new List<product>();
-                ListProducts.Add(new product
+                List<Product> ListProducts = new List<Product>();
+                ListProducts.Add(new Product
                 {
                     ID = "Prod ID 01",
                     Name = "Product Name 01",
@@ -24,7 +24,7 @@ namespace SerializeAndDeserialize
                     price = new Price { Value = 100, Unit = "USD" },
                     description = new Description { Color = "Red", Size = "Size 01", Weight = "100g" }
                 });
-                ListProducts.Add(new product
+                ListProducts.Add(new Product
                 {
                     ID = "Prod ID 02",
                     Name = "Product Name 02",
@@ -32,7 +32,7 @@ namespace SerializeAndDeserialize
                     price = new Price { Value = 100, Unit = "EUR" },
                     description = new Description { Color = "Blue", Size = "Size 02", Weight = "200g" }
                 });
-                ListProducts.Add(new product
+                ListProducts.Add(new Product
                 {
                     ID = "Prod ID 03",
                     Name = "Product Name 03",
@@ -40,7 +40,7 @@ namespace SerializeAndDeserialize
                     price = new Price { Value = 100, Unit = "PHP" },
                     description = new Description { Color = "Green", Size = "Size 03", Weight = "300g" }
                 });
-                XmlSerializer xmlserializer = new XmlSerializer(typeof(List<product>));
+                XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
                 StreamWriter SW = new StreamWriter("ListOfProduct.xml");
                 xmlserializer.Serialize(SW, ListProducts);
                 SW.Close();
@@ -54,21 +54,22 @@ namespace SerializeAndDeserialize
             //List Deserialize
             try
             {
-                XmlSerializer xmlserializer = new XmlSerializer(typeof(List<product>));
+                XmlSerializer xmlserializer = new XmlSerializer(typeof(List<Product>));
                 StreamReader SR = new StreamReader("ListOfProduct.xml");
-                List<product> listproduct = (List<product>)xmlserializer.Deserialize(SR);
+                List<Product> listproduct = (List<Product>)xmlserializer.Deserialize(SR);
                 Console.WriteLine("List Product Information");
                 Console.WriteLine();
-                foreach (product product in listproduct)
+                foreach (Product product in listproduct)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("ID     : " + product.ID);
-                    Console.WriteLine("Name   : " + product.Name);
-                    Console.WriteLine("Price  : " + product.price.Value);
-                    Console.WriteLine("Unit   : " + product.price.Unit);
-                    Console.WriteLine("Color  : " + product.description.Color);
-                    Console.WriteLine("Size   : " + product.description.Size);
-                    Console.WriteLine("Weight : " + product.description.Weight);
+                    Console.WriteLine("ID        : " + product.ID);
+                    Console.WriteLine("Name      : " + product.Name);
+                    Console.WriteLine("Category  : " + product.CategoryName);
+                    Console.WriteLine("Price     : " + product.price.Value);
+                    Console.WriteLine("Unit      : " + product.price.Unit);
+                    Console.WriteLine("Color     : " + product.description.Color);
+                    Console.WriteLine("Size      : " + product.description.Size);
+                    Console.WriteLine("Weight    : " + product.description.Weight);
                     Console.WriteLine();
                     Console.WriteLine("♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫");
                 }

@@ -66,9 +66,7 @@
                 <h4>Product List</h4>
             </div>
             <div class="panel-body">
-                <asp:GridView ID="_grdvwProduct" runat="server" AutoGenerateColumns="False" >
-
-                </asp:GridView>
+                <asp:GridView ID="_grdvwProduct" runat="server" AutoGenerateColumns="False"></asp:GridView>
             </div>
             <div class="panel-footer"></div>
         </div>
