@@ -58,7 +58,7 @@
             <div class="panel-footer"></div>
         </div>
         <div class="panel panel-danger panel-body text-center">
-            <asp:Button ID="_btnSave" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="_btnSave_Click" />
+            <asp:Button ID="_btnSave" runat="server" Text="Save" CssClass="btn btn-info" OnClick="_btnSave_Click" />
             <asp:Button ID="_btnClear" runat="server" Text="Clear" CssClass="btn btn-danger" OnClientClick="this.form.reset();return false;" />
         </div>
         <div class="panel panel-info">
@@ -67,6 +67,7 @@
             </div>
             <div class="panel-body">
                 <asp:GridView ID="_grdvwProduct" runat="server" AutoGenerateColumns="False" >
+
                 </asp:GridView>
             </div>
             <div class="panel-footer"></div>
