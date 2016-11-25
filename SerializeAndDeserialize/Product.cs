@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace SerializeAndDeserialize
 {
     [XmlRoot("product")]
-    public class Product
+    public class product
     {
         [XmlAttribute("id")]
         public string ID

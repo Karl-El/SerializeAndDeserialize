@@ -67,6 +67,14 @@
             </div>
             <div class="panel-body">
                 <asp:GridView ID="_grdvwProduct" runat="server" AutoGenerateColumns="False"></asp:GridView>
+                <asp:Label ID="Label9" runat="server"></asp:Label><br />
+                <asp:Label ID="Label10" runat="server"></asp:Label><br />
+                <asp:Label ID="Label11" runat="server"></asp:Label><br />
+                <asp:Label ID="Label12" runat="server"></asp:Label><br />
+                <asp:Label ID="Label13" runat="server"></asp:Label><br />
+                <asp:Label ID="Label14" runat="server"></asp:Label><br />
+                <asp:Label ID="Label15" runat="server"></asp:Label><br />
+                <asp:Label ID="Label16" runat="server"></asp:Label>
             </div>
             <div class="panel-footer"></div>
         </div>
