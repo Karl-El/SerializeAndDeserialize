@@ -54,4 +54,13 @@
       <weight>400g</weight>
     </description>
   </product>
+  <product id="0007" categoryname="CATEGORYNAME007">
+    <name>PRODUCTNAME0007</name>
+    <price unit="AUD">7000</price>
+    <description>
+      <color>#000000</color>
+      <size>7</size>
+      <weight>700g</weight>
+    </description>
+  </product>
 </ArrayOfProduct>
