@@ -41,19 +41,15 @@ namespace SerializeAndDeserializeWeb
             Response.Write("List Product Information" + "</br>");
             foreach (product product in listproduct)
             {
-                //BoundField IDField = new BoundField();
-                //IDField.DataField = ne;
-                //IDField.HeaderText = "Person Name";
-                //_grdvwProduct.Columns.Add(IDField);
-                Response.Write("</br>");
-                Response.Write(" ID        : " + product.ID + "</br>");
-                Response.Write(" Name      : " + product.Name + "</br>");
-                Response.Write(" Category  : " + product.CategoryName + "</br>");
-                Response.Write(" Price     : " + product.price.Value + "</br>");
-                Response.Write(" Unit      : " + product.price.Unit + "</br>");
-                Response.Write(" Color     : " + product.description.Color + "</br>");
-                Response.Write(" Size      : " + product.description.Size + "</br>");
-                Response.Write(" Weight    : " + product.description.Weight + "</br>");
+                //Response.Write("</br>");
+                //Response.Write(" ID        : " + product.ID + "</br>");
+                //Response.Write(" Name      : " + product.Name + "</br>");
+                //Response.Write(" Category  : " + product.CategoryName + "</br>");
+                //Response.Write(" Price     : " + product.price.Value + "</br>");
+                //Response.Write(" Unit      : " + product.price.Unit + "</br>");
+                //Response.Write(" Color     : " + product.description.Color + "</br>");
+                //Response.Write(" Size      : " + product.description.Size + "</br>");
+                //Response.Write(" Weight    : " + product.description.Weight + "</br>");
             }
             SR.Close();
             _grdvwProduct.DataBind();
