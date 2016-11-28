@@ -50,7 +50,7 @@
     <price unit="PHP">1000</price>
     <description>
       <color>#00ff00</color>
-      <size>5464645</size>
+      <size>5</size>
       <weight>400g</weight>
     </description>
   </product>
@@ -61,6 +61,15 @@
       <color>#000000</color>
       <size>7</size>
       <weight>700g</weight>
+    </description>
+  </product>
+  <product id="0008" categoryname="CATEGORYNAME008">
+    <name>PRODUCTNAME0008</name>
+    <price unit="PHP">8000</price>
+    <description>
+      <color>#ff0080</color>
+      <size>8</size>
+      <weight>800g</weight>
     </description>
   </product>
 </ArrayOfProduct>
