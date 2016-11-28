@@ -55,7 +55,7 @@ namespace SerializeAndDeserialize
         [XmlText]
         public int Value
         {
-            get;
+            get; 
             set;
         }
     }

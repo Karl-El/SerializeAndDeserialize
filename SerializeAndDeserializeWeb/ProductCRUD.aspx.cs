@@ -30,6 +30,18 @@ namespace SerializeAndDeserializeWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string NodeType, NodeName;
+            XmlTextReader reader = new XmlTextReader("http://afs-sl-schmgr03.afservice.org:8080/searchManager/search/afs-sl-schmstr.afservice.org:8080/solr4/Products/select?q=laptop&fl=EDP&store=pcmall&rows=25&start=0&facet=true&facet.field=Manufacturer&facet.field=InStock&facet.limit=10");
+            reader.WhitespaceHandling = WhitespaceHandling.Significant;
+            while (reader.Read())
+            {
+
+                NodeType = reader.NodeType.ToString() ; NodeName = reader.Name;
+                // Print out info on node  
+                Response.Write("Node Type: " + NodeType + "</br>");
+                Response.Write("Node Name: " + NodeName + "</br></br>");
+                Response.Write("");
+            }
             BindProdGrid();
         }
 
@@ -38,18 +50,17 @@ namespace SerializeAndDeserializeWeb
             XmlSerializer xmlserializer = new XmlSerializer(typeof(List<product>));
             StreamReader SR = new StreamReader(@"C:/Users/ccruz1/Documents/visual studio 2015/Projects/SerializeAndDeserialize/SerializeAndDeserializeWeb/ProductWEB.xml");
             List<product> listproduct = (List<product>)xmlserializer.Deserialize(SR);
-            Response.Write("List Product Information" + "</br>");
             foreach (product product in listproduct)
             {
-                //Response.Write("</br>");
-                //Response.Write(" ID        : " + product.ID + "</br>");
-                //Response.Write(" Name      : " + product.Name + "</br>");
-                //Response.Write(" Category  : " + product.CategoryName + "</br>");
-                //Response.Write(" Price     : " + product.price.Value + "</br>");
-                //Response.Write(" Unit      : " + product.price.Unit + "</br>");
-                //Response.Write(" Color     : " + product.description.Color + "</br>");
-                //Response.Write(" Size      : " + product.description.Size + "</br>");
-                //Response.Write(" Weight    : " + product.description.Weight + "</br>");
+                /*Response.Write("</br>");
+                Response.Write(" ID        : " + product.ID + "</br>");
+                Response.Write(" Name      : " + product.Name + "</br>");
+                Response.Write(" Category  : " + product.CategoryName + "</br>");
+                Response.Write(" Price     : " + product.price.Value + "</br>");
+                Response.Write(" Unit      : " + product.price.Unit + "</br>");
+                Response.Write(" Color     : " + product.description.Color + "</br>");
+                Response.Write(" Size      : " + product.description.Size + "</br>");
+                Response.Write(" Weight    : " + product.description.Weight + "</br>");*/
             }
             SR.Close();
             _grdvwProduct.DataBind();

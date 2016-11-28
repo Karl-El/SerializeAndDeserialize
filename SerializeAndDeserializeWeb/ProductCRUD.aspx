@@ -66,53 +66,55 @@
                 <h4>Product List</h4>
             </div>
             <div class="panel-body">
-                <asp:GridView ID="_grdvwProduct" runat="server" DataSourceID="XmlDataSource1" CssClass="table table-condensed" GridLines="None" AutoGenerateColumns="false">
-                    <Columns>
-                        <asp:TemplateField HeaderText="ID">
-                            <ItemTemplate>
-                                <%# XPath("@id") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Name">
-                            <ItemTemplate>
-                                <%# XPath("name") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Category Name">
-                            <ItemTemplate>
-                                <%# XPath("@categoryname") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Price">
-                            <ItemTemplate>
-                                <%# XPath("price") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Unit">
-                            <ItemTemplate>
-                                <%# XPath("price/@unit") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Color">
-                            <ItemTemplate>
-                                <%# XPath("description/color") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Size">
-                            <ItemTemplate>
-                                <%# XPath("description/size") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Weight">
-                            <ItemTemplate>
-                                <%# XPath("description/weight") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                    <HeaderStyle CssClass="warning" />
-                </asp:GridView>
+                <div class="table-responsive">
+                    <asp:GridView ID="_grdvwProduct" runat="server" DataSourceID="XmlDataSource1" CssClass="table table-condensed" GridLines="None" AutoGenerateColumns="false" AllowPaging="True">
+                        <Columns>
+                            <asp:TemplateField HeaderText="ID">
+                                <ItemTemplate>
+                                    <%# XPath("@id") %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Name">
+                                <ItemTemplate>
+                                    <%# XPath("name") %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Category Name">
+                                <ItemTemplate>
+                                    <%# XPath("@categoryname") %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Price">
+                                <ItemTemplate>
+                                    <%# XPath("price") %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Unit">
+                                <ItemTemplate>
+                                    <%# XPath("price/@unit") %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Color">
+                                <ItemTemplate>
+                                    <%# XPath("description/color") %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Size">
+                                <ItemTemplate>
+                                    <%# XPath("description/size") %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Weight">
+                                <ItemTemplate>
+                                    <%# XPath("description/weight") %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <HeaderStyle CssClass="success" />
+                    </asp:GridView>
+                </div>
                 <asp:XmlDataSource runat="server" ID="XmlDataSource1" DataFile="~/ProductWEB.xml"></asp:XmlDataSource>
-               <%--<asp:Label ID="Label9" runat="server"></asp:Label><br />
+                <%--<asp:Label ID="Label9" runat="server"></asp:Label><br />
                 <asp:Label ID="Label10" runat="server"></asp:Label><br />
                 <asp:Label ID="Label11" runat="server"></asp:Label><br />
                 <asp:Label ID="Label12" runat="server"></asp:Label><br />
