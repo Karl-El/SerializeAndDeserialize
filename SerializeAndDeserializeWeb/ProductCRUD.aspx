@@ -66,8 +66,8 @@
                 <h4>Product List</h4>
             </div>
             <div class="panel-body">
-                <asp:GridView ID="_grdvwProduct" runat="server" XPath="/ArrayOfProduct/product" DataSourceID="XmlDataSource1" CssClass="table table-condensed" GridLines="None" AutoGenerateColumns="false">
-                    <Columns>
+                <asp:GridView ID="_grdvwProduct" runat="server" XPath="/ArrayOfProduct/product"  CssClass="table table-condensed" GridLines="None" AutoGenerateColumns="false">
+                   <%-- <Columns>
                         <asp:TemplateField HeaderText="ID">
                             <ItemTemplate>
                                 <%# XPath("@id") %>
@@ -108,7 +108,7 @@
                                 <%# XPath("weight") %>
                             </ItemTemplate>
                         </asp:TemplateField>
-                    </Columns>
+                    </Columns>--%>
                     <HeaderStyle CssClass="warning" />
                 </asp:GridView>
                 <asp:XmlDataSource runat="server" ID="XmlDataSource1" DataFile="~/ProductWEB.xml"></asp:XmlDataSource>
