@@ -46,7 +46,7 @@ namespace WebServiceDeserialization
 
 
             //-----------------------------------------------------------------------------------------------------WORKING READER
-            XmlTextReader reader = new XmlTextReader("http://afs-sl-schmgr03.afservice.org:8080/searchManager/search/afs-sl-schmstr.afservice.org:8080/solr4/Products/select?q=laptop&fl=EDP&store=pcmall&rows=10&start=0&facet=true&facet.field=Manufacturer&facet.field=InStock&facet.limit=-1");
+            XmlTextReader reader = new XmlTextReader("http://afs-sl-schmgr03.afservice.org:8080/searchManager/search/afs-sl-schmstr.afservice.org:8080/solr4/Products/select?q=laptop&fl=EDP&store=pcmall&rows=40&start=0");
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
             while (reader.ReadToFollowing("result"))
             {
