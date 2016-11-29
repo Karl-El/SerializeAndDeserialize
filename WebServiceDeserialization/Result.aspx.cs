@@ -46,6 +46,7 @@ namespace WebServiceDeserialization
 
 
             //-----------------------------------------------------------------------------------------------------WORKING READER
+            List<int> saveEDP = new List<int>();
             XmlTextReader reader = new XmlTextReader("http://afs-sl-schmgr03.afservice.org:8080/searchManager/search/afs-sl-schmstr.afservice.org:8080/solr4/Products/select?q=laptop&fl=EDP&store=pcmall&rows=40&start=0");
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
             while (reader.ReadToFollowing("result"))
@@ -57,15 +58,19 @@ namespace WebServiceDeserialization
                         string attr = reader.GetAttribute("name");
                         string valuetext = reader.ReadElementString("int");
 
+                        saveEDP.Add(Convert.ToInt32(valuetext));
+
+                        //Response.Write("Value:" + valuetext);
+                        //Response.Write("</br>");
+
                         //Response.Write("Attribute Name: " + attr);
                         //Response.Write("</br>");
-                        Response.Write("Value:" + valuetext);
-                        //Response.Write("</br>");
-                        Response.Write("</br>");
                     }
                 }
 
             }
+            _rptrEDP.DataSource = saveEDP;
+            _rptrEDP.DataBind();
         }
 
     }
