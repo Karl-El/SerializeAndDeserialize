@@ -17,22 +17,31 @@ namespace WebServiceDeserialization
             string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=";
             URL += EDPString;
             URL += "&ignoreCatalog=true";
-            Response.Write(URL);
             XmlTextReader reader = new XmlTextReader(URL);
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
-            while (reader.ReadToFollowing("result"))
+            while (reader.ReadToFollowing("productService"))
             {
-                while (reader.ReadToFollowing("productDetails"))
+                while (reader.ReadToFollowing("getProductInfo"))
                 {
-                    string valuetext = reader.Value;
+                    while (reader.ReadToFollowing("result"))
+                    {
+                        while (reader.ReadToFollowing("item"))
+                        {
+                            while (reader.ReadToFollowing("productDetails"))
+                            {
+                                string valuetext = reader.ReadInnerXml();
 
-                    Response.Write("Value:" + valuetext);
-                    Response.Write("</br>");
+                                Response.Write("Value:" + valuetext);
+                                Response.Write("</br>");
 
-                    //Response.Write("Attribute Name: " + attr);
-                    //Response.Write("</br>");
+                                //Response.Write("Attribute Name: " + attr);
+                                //Response.Write("</br>");
+                            }
+                        }
+                    }
                 }
             }
+            Response.Write(URL);
         }
     }
 }
