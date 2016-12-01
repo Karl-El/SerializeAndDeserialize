@@ -10,53 +10,92 @@ namespace WebServiceDeserialization
     public class ProdDetail
     {
 
-        public static void showDetails(String inputEdp,
-            Label label_store,
-            Label label_productName,
-            Label label_productdescription,
-            Label label_Price,
-            Image imageSource,
-            Label label_Manufacturer,
-            Label label_availabilityDescription)
-        // 6 label , 2 string 
+        public static void showDetails(string inputedp, string store, string name, string description, string finalPrice, string xlg, string manufacturer, string availabilityDescription)
         {
-            String inputurl = ("http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + inputEdp + "&ignoreCatalog=true"); //  + 6926988/*EDP*/ +
-            System.Xml.XmlTextReader reader = new XmlTextReader(inputurl);
-            // reader.WhitespaceHandling = WhitespaceHandling.Significant;
-            while (reader.Read())
+            string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=";
+            URL += inputedp;
+            URL += "&ignoreCatalog=true";
+            XmlTextReader reader = new XmlTextReader(URL);
+            reader.WhitespaceHandling = WhitespaceHandling.Significant;
+            while (reader.ReadToFollowing("productService"))
             {
-                if (reader.Name == "store")
+                while (reader.ReadToFollowing("getProductInfo"))
                 {
-                    label_store.Text = reader.ReadElementString("store");// show all EDP     
+                    while (reader.ReadToFollowing("result"))
+                    {
+                        while (reader.ReadToFollowing("item"))
+                        {
+                            while (reader.ReadToFollowing("productDetails"))
+                            {
+                                while (reader.Read())
+                                {
+                                    if (reader.Name == "name")
+                                    { name = reader.ReadElementString("name"); }
+                                    else { name = "empty";}
+                                    if (reader.Name == "store")
+                                    { store = reader.ReadElementString("store"); }
+                                    else { store = "empty";}
+                                    if (reader.Name == "description")
+                                    { description = reader.ReadElementString("description"); }
+                                    else { description = "empty";}
+                                    if (reader.Name == "finalPrice")
+                                    { finalPrice = reader.ReadElementString("finalPrice"); }
+                                    else { finalPrice = "empty";}
+                                    if (reader.Name == "xlg")
+                                    { xlg = reader.ReadElementString("xlg"); }
+                                    else { xlg = "empty";}
+                                    if (reader.Name == "manufacturer")
+                                    { manufacturer = reader.ReadElementString("manufacturer"); }
+                                    else { manufacturer = "empty";}
+                                    if (reader.Name == "availabilityDescription")
+                                    { availabilityDescription = reader.ReadElementString("availabilityDescription"); }
+                                    else { availabilityDescription = "empty"; }
+                                }
+                            }
+                        }
+                    }
                 }
-                //============================
-                if (reader.Name == "name")
-                {
-                    label_productName.Text = reader.ReadElementString("name");// show all EDP     
-                }
-                if (reader.Name == "description")
-                {
-                    label_productdescription.Text = reader.ReadElementString("description");// show all EDP     
-                }
-                if (reader.Name == "finalPrice")
-                {
-                    label_Price.Text = reader.ReadElementString("finalPrice");// show all EDP     
-                }
-                if (reader.Name == "xlg")  // IMAGE  & SIZE  // String value
-                {
-                    imageSource.ImageUrl = reader.ReadElementString("xlg");// show all EDP      // IMAGE SOURCE
-                }
-                if (reader.Name == "manufacturer")
-                {
-                    label_Manufacturer.Text = reader.ReadElementString("manufacturer");// show all EDP     
-                }
-                if (reader.Name == "availabilityDescription")
-                {
-                    label_availabilityDescription.Text = reader.ReadElementString("availabilityDescription");// show all EDP     
-                }
-
-                //reader.Name == "productDetails" ||reader.Name == "manufacturer"
             }
+            //Response.Write(valuetext);
+            //Response.Write("</br>");
+
+            //String inputurl = ("http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + inputedp + "&ignoreCatalog=true"); //  + 6926988/*EDP*/ +
+            //System.Xml.XmlTextReader reader = new XmlTextReader(inputurl);
+            //// reader.WhitespaceHandling = WhitespaceHandling.Significant;
+            //while (reader.Read())
+            //{
+            //    if (reader.Name == "store")
+            //    {
+            //        store = reader.ReadElementString("store");// show all EDP     
+            //    }
+            //    //============================
+            //    if (reader.Name == "name")
+            //    {
+            //        name = reader.ReadElementString("name");// show all EDP     
+            //    }
+            //    if (reader.Name == "description")
+            //    {
+            //        description = reader.ReadElementString("description");// show all EDP     
+            //    }
+            //    if (reader.Name == "finalPrice")
+            //    {
+            //        finalPrice = reader.ReadElementString("finalPrice");// show all EDP     
+            //    }
+            //    if (reader.Name == "xlg")  // IMAGE  & SIZE  // String value
+            //    {
+            //        xlg = reader.ReadElementString("xlg");// show all EDP      // IMAGE SOURCE
+            //    }
+            //    if (reader.Name == "manufacturer")
+            //    {
+            //        manufacturer = reader.ReadElementString("manufacturer");// show all EDP     
+            //    }
+            //    if (reader.Name == "availabilityDescription")
+            //    {
+            //        availabilityDescription = reader.ReadElementString("availabilityDescription");// show all EDP     
+            //    }
+
+            //    //reader.Name == "productDetails" ||reader.Name == "manufacturer"
+            //}
 
 
         }

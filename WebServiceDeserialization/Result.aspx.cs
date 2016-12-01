@@ -78,7 +78,7 @@ namespace WebServiceDeserialization
                 }
 
             }
-            ProdDetail.showDetails(EDP, lbl_Store, lbl_Name, lbl_Description, lbl_Price, img_Prod,lbl_Manufacturer,lbl_Availability);
+            //ProdDetail.showDetails(EDP, lbl_Store, lbl_Name, lbl_Description, lbl_Price, img_Prod,lbl_Manufacturer,lbl_Availability);
             _rptrEDP.DataSource = saveEDP;
             _rptrEDP.DataBind();
         }
