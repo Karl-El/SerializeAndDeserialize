@@ -11,7 +11,17 @@ namespace WebServiceDeserialization
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string EDP = "";
+            EDPList EDPList = new EDPList();
+            _rptrEDP.DataSource = EDPList.ListingEDP();
+            _rptrEDP.DataBind();
 
+            List<string> ListEDP = EDPList.ListingEDP();
+            for (int i = 0; i < ListEDP.Count; i++)
+            {
+                EDP += ListEDP[i];
+            }
+            Response.Write(EDP);
         }
     }
 }
