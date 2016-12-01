@@ -10,8 +10,9 @@ namespace WebServiceDeserialization
     public class ProdDetail
     {
 
-        public static void showDetails(string inputedp, string store, string name, string description, string finalPrice, string xlg, string manufacturer, string availabilityDescription)
+        public  void showDetails(string inputedp, string store, string name, string description, string finalPrice, string xlg, string manufacturer, string availabilityDescription)
         {
+            inputedp = "6926988";
             string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=";
             URL += inputedp;
             URL += "&ignoreCatalog=true";
