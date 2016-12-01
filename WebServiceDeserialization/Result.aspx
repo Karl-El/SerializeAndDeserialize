@@ -13,13 +13,13 @@
                     </div>
                     <div class="panel-body">
                     <asp:HyperLink runat="server" CssClass="btn btn-hyperlink" Text='<%# Container.DataItem.ToString()%>' NavigateUrl='<%#string.Concat("~/ProductDetails.aspx?id=",Container.DataItem.ToString()) %>' ID="_hyprlnkEDP"></asp:HyperLink></br>
-                    <asp:Label CssClass="control-label" ID="lbl_Store" runat="server" Text="Store:"></asp:Label></br>
+                    <%--<asp:Label CssClass="control-label" ID="lbl_Store" runat="server" Text="Store:"></asp:Label></br>
                     <asp:Label CssClass="control-label" ID="lbl_Name" runat="server" Text="Name:"></asp:Label></br>
                     <asp:Label CssClass="control-label" ID="lbl_Description" runat="server" Text="Description:"></asp:Label></br>
                     <asp:Label CssClass="control-label" ID="lbl_Price" runat="server" Text="Price:"></asp:Label></br>
                     <asp:Label CssClass="control-label" ID="lbl_Manufacturer" runat="server" Text="Manufacturer:"></asp:Label></br>
                     <asp:Image ID="img_Prod" runat="server" /></br>
-                    <asp:Label CssClass="control-label" ID="lbl_Availability" runat="server" Text="Availability:"></asp:Label></br>
+                    <asp:Label CssClass="control-label" ID="lbl_Availability" runat="server" Text="Availability:"></asp:Label></br>--%>
                     </div>
                 </div>
             </div>
