@@ -13,12 +13,13 @@ namespace WebServiceDeserialization
         protected void Page_Load(object sender, EventArgs e)
         {
             string EDPString = Request.QueryString["id"];
-            Response.Write(EDPString + "</br>");
+            Response.Write("EDP: "+EDPString + "</br>");
             string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=";
             URL += EDPString;
             URL += "&ignoreCatalog=true";
             XmlTextReader reader = new XmlTextReader(URL);
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
+            string valuetext = "";
             while (reader.ReadToFollowing("productService"))
             {
                 while (reader.ReadToFollowing("getProductInfo"))
@@ -29,19 +30,36 @@ namespace WebServiceDeserialization
                         {
                             while (reader.ReadToFollowing("productDetails"))
                             {
-                                string valuetext = reader.ReadInnerXml();
+                                while (reader.Read())
+                                {
+                                    if (reader.Name == "name")
+                                    {
+                                        valuetext += "Name:";
+                                        valuetext += reader.ReadElementString("name");
+                                        valuetext += "</br></br>";
+                                    }
 
-                                Response.Write("Value:" + valuetext);
-                                Response.Write("</br>");
+                                    if (reader.Name == "description")
+                                    {
+                                        valuetext += "Desc:";
+                                        valuetext += reader.ReadElementString("description");
+                                        valuetext += "</br>";
+                                    }
 
-                                //Response.Write("Attribute Name: " + attr);
-                                //Response.Write("</br>");
+                                    if (reader.Name == "finalPrice")
+                                    {
+                                        valuetext += "Final Price:";
+                                        valuetext += reader.ReadElementString("finalPrice");
+                                        valuetext += "</br>";
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
-            Response.Write(URL);
+            Response.Write(valuetext);
+            Response.Write("</br>");
         }
     }
 }
