@@ -24,6 +24,8 @@ namespace WebServiceDeserialization
                 EDP = ListEDP[i];
             }
             Response.Write(EDP);
+            ProdInfo.showDetails("", STORE, NAME, DESCRIPTION, FINALPRICE, XLG, MANUFACTURER, AVAILABILITYDESCRIPTION);
+            Response.Write(STORE+ NAME+ DESCRIPTION+ FINALPRICE + XLG + MANUFACTURER);
         }
     }
 }
