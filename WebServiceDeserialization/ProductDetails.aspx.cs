@@ -15,7 +15,7 @@ namespace WebServiceDeserialization
             string EDPString = Request.QueryString["id"];
             Response.Write("EDP: "+EDPString + "</br>");
             string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=";
-            URL += EDPString;
+            URL += "8900680";
             URL += "&ignoreCatalog=true";
             XmlTextReader reader = new XmlTextReader(URL);
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
