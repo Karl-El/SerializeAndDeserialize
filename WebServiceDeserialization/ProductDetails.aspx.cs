@@ -12,10 +12,11 @@ namespace WebServiceDeserialization
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             string EDPString = Request.QueryString["id"];
-            Response.Write("EDP: "+EDPString + "</br>");
+            Response.Write("EDP: " + EDPString + "</br>");
             string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=";
-            URL += "8900680";
+            URL += EDPString;
             URL += "&ignoreCatalog=true";
             XmlTextReader reader = new XmlTextReader(URL);
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
@@ -58,6 +59,7 @@ namespace WebServiceDeserialization
                     }
                 }
             }
+
             Response.Write(valuetext);
             Response.Write("</br>");
         }

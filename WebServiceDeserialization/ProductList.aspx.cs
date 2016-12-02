@@ -33,14 +33,14 @@ namespace WebServiceDeserialization
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
             while (reader.ReadToFollowing("productService"))
             {
-                while (reader.ReadToFollowing("getProductInfo"))
-                {
-                    while (reader.ReadToFollowing("result"))
-                    {
-                        while (reader.ReadToFollowing("item"))
-                        {
-                            while (reader.ReadToFollowing("productDetails"))
-                            {
+                //while (reader.ReadToFollowing("getProductInfo"))
+                //{
+                //    while (reader.ReadToFollowing("result"))
+                //    {
+                //        while (reader.ReadToFollowing("item"))
+                //        {
+                //            while (reader.ReadToFollowing("productDetails"))
+                //            {
                                 while (reader.Read())
                                 {
                                     if (reader.Name == "name")
@@ -85,7 +85,7 @@ namespace WebServiceDeserialization
                     }
                 }
                 //ProdInfo.showDetails("", STORE, NAME, DESCRIPTION, FINALPRICE, XLG, MANUFACTURER, AVAILABILITYDESCRIPTION);
-            }
-        }
-    }
-}
+//            }
+//        }
+//    }
+//}
