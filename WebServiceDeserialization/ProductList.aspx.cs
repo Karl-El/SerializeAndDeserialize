@@ -12,80 +12,32 @@ namespace WebServiceDeserialization
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //ProdDetail ProdInfo = new ProdDetail();
-            //string STORE = "", NAME = "", DESCRIPTION = "", FINALPRICE = "", XLG = "", MANUFACTURER = "", AVAILABILITYDESCRIPTION = "";
-            //string EDP = "";
-            //EDPList EDPList = new EDPList();
-            //_rptrEDP.DataSource = EDPList.ListingEDP();
-            //_rptrEDP.DataBind();
-
-            //List<string> ListEDP = EDPList.ListingEDP();
-            //for (int i = 0; i < ListEDP.Count; i++)
-            //{
-            //    EDP = ListEDP[i];
-            //}
-            string inputedp, store, name, description, finalPrice, xlg, manufacturer, availabilityDescription;
-            inputedp = "8900680";
-            string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=";
-            URL += inputedp;
-            URL += "&ignoreCatalog=true";
-            XmlTextReader reader = new XmlTextReader(URL);
-            reader.WhitespaceHandling = WhitespaceHandling.Significant;
-            while (reader.ReadToFollowing("productService"))
+        }
+        protected void _rptrEDP_PreRender(object sender, EventArgs e)
+        {
+            foreach (RepeaterItem item in _rptrEDP.Items)
             {
-                while (reader.ReadToFollowing("getProductInfo"))
+                if (item.ItemType == ListItemType.AlternatingItem || item.ItemType == ListItemType.Item)
                 {
-                    while (reader.ReadToFollowing("result"))
-                    {
-                        while (reader.ReadToFollowing("item"))
-                        {
-                            while (reader.ReadToFollowing("productDetails"))
-                            {
-                                while (reader.Read())
-                                {
-                                    reader.ReadInnerXml();
-                                    if (reader.Name == "name")
-                                    {
-                                        name = reader.ReadElementString("name");
-                                    }
-                                    else { name = "empty"; }
-                                    if (reader.Name == "store")
-                                    {
-                                        store = reader.ReadElementString("store");
-                                    }
-                                    else { store = "empty"; }
-                                    if (reader.Name == "description")
-                                    {
-                                        description = reader.ReadElementString("description");
-                                    }
-                                    else { description = "empty"; }
-                                    if (reader.Name == "finalPrice")
-                                    {
-                                        finalPrice = reader.ReadElementString("finalPrice");
-                                    }
-                                    else { finalPrice = "empty"; }
-                                    if (reader.Name == "xlg")
-                                    {
-                                        xlg = reader.ReadElementString("xlg");
-                                    }
-                                    else { xlg = "empty"; }
-                                    if (reader.Name == "manufacturer")
-                                    {
-                                        manufacturer = reader.ReadElementString("manufacturer");
-                                    }
-                                    else { manufacturer = "empty"; }
-                                    if (reader.Name == "availabilityDescription")
-                                    {
-                                        availabilityDescription = reader.ReadElementString("availabilityDescription");
-                                    }
-                                    else { availabilityDescription = "empty"; }
-                                    Response.Write(inputedp + store + name + description + finalPrice + xlg + manufacturer + availabilityDescription);
-                                }
-                            }
-                        }
-                    }
+                    ProdDetail ProdInfo = new ProdDetail();
+                    Label lbl_Name = (Label)(_rptrEDP.FindControl("lbl_Name"));
+                    string NAME = "", DESCRIPTION = "", FINALPRICE = "", XLG = "", MANUFACTURER = "", AVAILABILITYDESCRIPTION = "";
+                    string EDP = "6926988";
+                    //EDPList EDPList = new EDPList();
+                    //_rptrEDP.DataSource = EDPList.ListingEDP();
+                    //_rptrEDP.DataBind();
+
+                    //List<string> ListEDP = EDPList.ListingEDP();
+                    //for (int i = 0; i < ListEDP.Count; i++)
+                    //{
+                    //    EDP = ListEDP[i];
+                    //}
+                    ProdInfo.showDetails(EDP, NAME, DESCRIPTION, FINALPRICE, XLG, MANUFACTURER, AVAILABILITYDESCRIPTION);
+                    lbl_Name.Text = NAME;
+
+
                 }
-                //ProdInfo.showDetails("", STORE, NAME, DESCRIPTION, FINALPRICE, XLG, MANUFACTURER, AVAILABILITYDESCRIPTION);
+
             }
         }
     }
