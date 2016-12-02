@@ -13,5 +13,21 @@ namespace WebServiceDeserialization
         {
 
         }
+        public static void LabelCssClass(Control root)
+        {
+            foreach (Control control in root.Controls)
+            {
+                if (control is Label)
+                {
+                    var label = control as Label;
+                    label.CssClass = "control-label";
+                }
+                else
+                {
+                    LabelCssClass(control);
+                }
+            }
+        }
+
     }
 }
