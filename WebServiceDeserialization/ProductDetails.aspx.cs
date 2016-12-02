@@ -20,47 +20,79 @@ namespace WebServiceDeserialization
             URL += "&ignoreCatalog=true";
             XmlTextReader reader = new XmlTextReader(URL);
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
-            string valuetext = "";
+            string DetailString = "";
             while (reader.ReadToFollowing("productService"))
             {
                 while (reader.ReadToFollowing("getProductInfo"))
                 {
                     while (reader.ReadToFollowing("result"))
                     {
+
                         while (reader.ReadToFollowing("item"))
                         {
+
                             while (reader.ReadToFollowing("productDetails"))
+                            #region
                             {
                                 while (reader.Read())
                                 {
                                     if (reader.Name == "name")
                                     {
-                                        valuetext += "Name:";
-                                        valuetext += reader.ReadElementString("name");
-                                        valuetext += "</br></br>";
+                                        DetailString += "Name:";
+                                        DetailString += reader.ReadElementString("name");
+                                        DetailString += "</br>";
                                     }
-
+                                    if (reader.Name == "manufacturer")
+                                    {
+                                        DetailString += "Manufacturer:";
+                                        DetailString += reader.ReadElementString("manufacturer");
+                                        DetailString += "</br>";
+                                    }
                                     if (reader.Name == "description")
                                     {
-                                        valuetext += "Desc:";
-                                        valuetext += reader.ReadElementString("description");
-                                        valuetext += "</br>";
+                                        DetailString += "Desc:";
+                                        DetailString += reader.ReadElementString("description");
+                                        DetailString += "</br>";
                                     }
-
-                                    if (reader.Name == "finalPrice")
-                                    {
-                                        valuetext += "Final Price:";
-                                        valuetext += reader.ReadElementString("finalPrice");
-                                        valuetext += "</br>";
-                                    }
+                                    //if (reader.Name == "store")
+                                    //{
+                                    //    valuetext += "Store:";
+                                    //    valuetext += reader.ReadElementString("store");
+                                    //    valuetext += "</br>";
+                                    //}
+                                    //if (reader.Name == "availabilityDescription")
+                                    //{
+                                    //    valuetext += "Availabilty:";
+                                    //    valuetext += reader.ReadElementString("availabilityDescription");
+                                    //    valuetext += "</br>";
+                                    //}
+                                    //if (reader.Name == "xlg")
+                                    //{
+                                    //    valuetext += "Image URL:";
+                                    //    valuetext += reader.ReadElementString("xlg");
+                                    //    valuetext += "</br>";
+                                    //}
                                 }
                             }
+                            #endregion
+
+                            while (reader.ReadToFollowing("prices"))
+                            #region
+                            {
+                                if (reader.Name == "finalPrice")
+                                {
+                                    DetailString += "Final Price:";
+                                    DetailString += reader.ReadElementString("finalPrice");
+                                    DetailString += "</br>";
+                                }
+                            }
+                            #endregion
                         }
                     }
                 }
             }
 
-            Response.Write(valuetext);
+            Response.Write(DetailString);
             Response.Write("</br>");
         }
     }

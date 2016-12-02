@@ -31,25 +31,39 @@ namespace WebServiceDeserialization
                                 while (reader.Read())
                                 {
                                     if (reader.Name == "name")
-                                    { name = reader.ReadElementString("name"); }
-                                    else { name = "empty";}
+                                    {
+                                        name = reader.ReadElementString("name");
+                                    }
+                                    else { name = "empty"; }
                                     if (reader.Name == "store")
-                                    { store = reader.ReadElementString("store"); }
-                                    else { store = "empty";}
+                                    {
+                                        store = reader.ReadElementString("store");
+                                    }
+                                    else { store = "empty"; }
                                     if (reader.Name == "description")
-                                    { description = reader.ReadElementString("description"); }
-                                    else { description = "empty";}
+                                    {
+                                        description = reader.ReadElementString("description");
+                                    }
+                                    else { description = "empty"; }
                                     if (reader.Name == "finalPrice")
-                                    { finalPrice = reader.ReadElementString("finalPrice"); }
-                                    else { finalPrice = "empty";}
+                                    {
+                                        finalPrice = reader.ReadElementString("finalPrice");
+                                    }
+                                    else { finalPrice = "empty"; }
                                     if (reader.Name == "xlg")
-                                    { xlg = reader.ReadElementString("xlg"); }
-                                    else { xlg = "empty";}
+                                    {
+                                        xlg = reader.ReadElementString("xlg");
+                                    }
+                                    else { xlg = "empty"; }
                                     if (reader.Name == "manufacturer")
-                                    { manufacturer = reader.ReadElementString("manufacturer"); }
-                                    else { manufacturer = "empty";}
+                                    {
+                                        manufacturer = reader.ReadElementString("manufacturer");
+                                    }
+                                    else { manufacturer = "empty"; }
                                     if (reader.Name == "availabilityDescription")
-                                    { availabilityDescription = reader.ReadElementString("availabilityDescription"); }
+                                    {
+                                        availabilityDescription = reader.ReadElementString("availabilityDescription");
+                                    }
                                     else { availabilityDescription = "empty"; }
                                 }
                             }
