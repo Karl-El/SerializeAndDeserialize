@@ -79,12 +79,12 @@ namespace WebServiceDeserialization
                     DetailString += reader.ReadElementString("finalPrice");
                     DetailString += "</br>";
                 }
-                if (reader.Name == "store")
-                {
-                    DetailString += "Store: ";
-                    DetailString += reader.ReadElementString("store");
-                    DetailString += "</br>";
-                }
+                //if (reader.Name == "store")
+                //{
+                //    DetailString += "Store: ";
+                //    DetailString += reader.ReadElementString("store");
+                //    DetailString += "</br>";
+                //}
                 if (reader.Name == "availabilityDescription")
                 {
                     DetailString += "Availabilty: ";
