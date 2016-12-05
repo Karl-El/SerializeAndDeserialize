@@ -10,6 +10,7 @@ namespace WebServiceDeserialization
 {
     public partial class ProductList : System.Web.UI.Page
     {
+        string Manufacturers = "";
         string DetailString = "";
         EDPList EDPList = new EDPList();
         Manufacturer Manufacturer = new Manufacturer();
@@ -30,7 +31,7 @@ namespace WebServiceDeserialization
 
             for (int i= 0; i < ListManufact.Count; i++)
             {
-
+                Manufacturers += ListManufact[i]+"☺";
             }
             for (int i = 0; i < ListEDP.Count; i++)
             #region FORSTART
@@ -99,6 +100,7 @@ namespace WebServiceDeserialization
                 DetailString += "</br>";
             }
             Response.Write(DetailString);
+            Response.Write(Manufacturers);
             Response.Write("</br></br></br>");
 
             //------------------------------------------WORKING STATIC
