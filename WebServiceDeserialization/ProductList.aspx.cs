@@ -19,7 +19,7 @@ namespace WebServiceDeserialization
             _rptrEDP.DataSource = EDPList.ListingEDP();
             _rptrEDP.DataBind();
 
-            List<string> ListEDP;
+            /*List<string> ListEDP;
             ListEDP = EDPList.ListingEDP();
             for (int i = 0; i < ListEDP.Count; i++)
             #region FORSTART
@@ -76,10 +76,11 @@ namespace WebServiceDeserialization
                 DetailString += "</br>";
             }
             Response.Write(DetailString);
-            Response.Write("</br></br></br>");
+            Response.Write("</br></br></br>");*/
         }
         protected void _rptrEDP_PreRender(object sender, EventArgs e)
         {
+
             foreach (RepeaterItem item in _rptrEDP.Items)
             {
                 if (item.ItemType == ListItemType.AlternatingItem || item.ItemType == ListItemType.Item)
@@ -90,38 +91,45 @@ namespace WebServiceDeserialization
                     Label lbl_Manufacturer = (Label)item.FindControl("lbl_Manufacturer");
                     Label lbl_Availability = (Label)item.FindControl("lbl_Availability");
                     Image img_Prod = (Image)item.FindControl("img_Prod");
+                    List<string> ListEDP;
+                    ListEDP = EDPList.ListingEDP();
+                    for (int i = 0; i < ListEDP.Count; i++)
+                    {
+                        string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
+                        XmlTextReader reader = new XmlTextReader(URL);
+                        reader.WhitespaceHandling = WhitespaceHandling.Significant;
+                        if (reader.Name == "name")
+                        {
+                            lbl_Name.Text = reader.ReadElementString("name");
+                        }
+                        else { lbl_Name.Text = "empty"; }
+                        if (reader.Name == "description")
+                        {
+                            lbl_Description.Text = reader.ReadElementString("description");
+                        }
+                        else { lbl_Description.Text = "empty"; }
+                        if (reader.Name == "finalPrice")
+                        {
+                            lbl_Price.Text = reader.ReadElementString("finalPrice");
+                        }
+                        else { lbl_Price.Text = "empty"; }
+                        if (reader.Name == "xlg")
+                        {
+                            img_Prod.ImageUrl = reader.ReadElementString("xlg");
+                        }
+                        else { img_Prod.ImageUrl = "empty"; }
+                        if (reader.Name == "manufacturer")
+                        {
+                            lbl_Manufacturer.Text = reader.ReadElementString("manufacturer");
+                        }
+                        else { lbl_Manufacturer.Text = "empty"; }
+                        if (reader.Name == "availabilityDescription")
+                        {
+                            lbl_Availability.Text = reader.ReadElementString("availabilityDescription");
+                        }
+                        else { lbl_Availability.Text = "empty"; }
 
-                    //if (reader.Name == "name")
-                    //{
-                    //    lbl_Name.Text = reader.ReadElementString("name");
-                    //}
-                    //else { lbl_Name.Text = "Hello"; }
-                    //if (reader.Name == "description")
-                    //{
-                    //    lbl_Description.Text = reader.ReadElementString("description");
-                    //}
-                    //else { lbl_Description.Text = "empty"; }
-                    //if (reader.Name == "finalPrice")
-                    //{
-                    //    lbl_Price.Text = reader.ReadElementString("finalPrice");
-                    //}
-                    //else { lbl_Price.Text = "empty"; }
-                    //if (reader.Name == "xlg")
-                    //{
-                    //    img_Prod.ImageUrl = reader.ReadElementString("xlg");
-                    //}
-                    //else { img_Prod.ImageUrl = "empty"; }
-                    //if (reader.Name == "manufacturer")
-                    //{
-                    //    lbl_Manufacturer.Text = reader.ReadElementString("manufacturer");
-                    //}
-                    //else { lbl_Manufacturer.Text = "empty"; }
-                    //if (reader.Name == "availabilityDescription")
-                    //{
-                    //    lbl_Availability.Text = reader.ReadElementString("availabilityDescription");
-                    //}
-                    //else { lbl_Availability.Text = "empty"; }
-
+                    }
                 }
             }
         }
