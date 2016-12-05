@@ -38,11 +38,13 @@ namespace WebServiceDeserialization
                         DetailString += "Name: ";
                         DetailString += reader.ReadElementString("name");
                         DetailString += "</br>";
+                        DetailString += "</br>";
                     }
                     if (reader.Name == "manufacturer")
                     {
                         DetailString += "Manufacturer: ";
                         DetailString += reader.ReadElementString("manufacturer");
+                        DetailString += "</br>";
                         DetailString += "</br>";
                     }
                     if (reader.Name == "description")
@@ -50,11 +52,13 @@ namespace WebServiceDeserialization
                         DetailString += "Description: ";
                         DetailString += reader.ReadElementString("description");
                         DetailString += "</br>";
+                        DetailString += "</br>";
                     }
                     if (reader.Name == "finalPrice")
                     {
                         DetailString += "Final Price: ";
                         DetailString += reader.ReadElementString("finalPrice");
+                        DetailString += "</br>";
                         DetailString += "</br>";
                     }
                     //if (reader.Name == "store")
@@ -68,6 +72,7 @@ namespace WebServiceDeserialization
                         DetailString += "Availabilty: ";
                         DetailString += reader.ReadElementString("availabilityDescription");
                         DetailString += "</br>";
+                        DetailString += "</br>";
                     }
                     if (reader.Name == "xlg")
                     {
@@ -77,6 +82,7 @@ namespace WebServiceDeserialization
                         DetailString += "<img src =";
                         DetailString += '"' + ImageURL + '"';
                         DetailString += " class='img-responsive img-thumbnail center-block' width='150' height='150' alt='Image Not Available'>";
+                        DetailString += "</br>";
                         DetailString += "</br>";
                     }
                 }
