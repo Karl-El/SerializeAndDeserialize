@@ -8,24 +8,30 @@ namespace WebServiceDeserialization
 {
     public class Manufacturer
     {
+        EDPList EDPList = new EDPList();
+        List<string> ListEDP;
         public List<string> ListManufacturer()
         {
+            ListEDP = EDPList.ListingEDP();
             List<string> Manufact = new List<string>();
-            XmlTextReader reader = new XmlTextReader("http://afs-sl-schmgr03.afservice.org:8080/searchManager/search/afs-sl-schmstr.afservice.org:8080/solr4/Products/select?q=laptop&fl=EDP&store=pcmall&rows=10&start=0&facet=true&facet.field=Manufacturer&facet.field=InStock&facet.limit=10");
-            reader.WhitespaceHandling = WhitespaceHandling.Significant;
-            while (reader.ReadToFollowing("lst"))
+            for (int i = 0; i < ListEDP.Count; i++)
             {
-                if (reader.GetAttribute("name") == "Manufacturer")
+                string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
+                XmlTextReader reader = new XmlTextReader(URL);
+                reader.WhitespaceHandling = WhitespaceHandling.Significant;
+
+                while (reader.Read())
                 {
-                    while (reader.ReadToFollowing("int"))
+                    if (reader.Name == "manufacturer")
                     {
-                        string valuetext = reader.GetAttribute("name");
-                        Manufact.Add(valuetext);
+                        string elementstring= reader.ReadElementString("manufacturer");
+                        Manufact.Add(elementstring);
                     }
+
                 }
             }
+            Manufact = Manufact.Distinct().ToList();
             return (Manufact);
         }
-
     }
 }

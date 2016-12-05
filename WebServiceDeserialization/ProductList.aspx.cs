@@ -32,11 +32,7 @@ namespace WebServiceDeserialization
             List<string> ListManufact;
             ListManufact = Manufacturer.ListManufacturer();
             ListEDP = EDPList.ListingEDP();
-
-            for (int i = 0; i < ListManufact.Count; i++)
-            {
-                Manufacturers += ListManufact[i] + "☺";
-            }
+            
             for (int i = 0; i < ListEDP.Count; i++)
             #region FORSTART
             {
