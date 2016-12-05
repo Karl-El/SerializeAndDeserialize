@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EDPList.cs" />
+    <Compile Include="Manufacturer.cs" />
     <Compile Include="ProdDetail.cs" />
     <Compile Include="ProductDetails.aspx.cs">
       <DependentUpon>ProductDetails.aspx</DependentUpon>
