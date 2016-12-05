@@ -30,7 +30,7 @@ namespace WebServiceDeserialization
 
                 }
             }
-            Manufact = Manufact.Distinct().ToList();
+            Manufact = Manufact.Distinct();
             return (Manufact);
         }
     }
