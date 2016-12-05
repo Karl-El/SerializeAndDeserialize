@@ -24,13 +24,6 @@ namespace WebServiceDeserialization
                     }
                 }
             }
-            //while (reader.Read())
-            //{
-            //    if ()
-            //    {
-
-            //    }
-            //}
             return (Manufact);
         }
 

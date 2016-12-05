@@ -13,12 +13,12 @@ namespace WebServiceDeserialization {
     public partial class ProductList {
         
         /// <summary>
-        /// _rptrEDP control.
+        /// _rdbtnlstManufact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater _rptrEDP;
+        protected global::System.Web.UI.WebControls.RadioButtonList _rdbtnlstManufact;
     }
 }

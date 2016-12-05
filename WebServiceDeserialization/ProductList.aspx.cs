@@ -18,8 +18,12 @@ namespace WebServiceDeserialization
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            _rptrEDP.DataSource = EDPList.ListingEDP();
-            _rptrEDP.DataBind();
+            //_rptrEDP.DataSource = EDPList.ListingEDP();
+            //_rptrEDP.DataBind();
+            _rdbtnlstManufact.DataSource = Manufacturer.ListManufacturer();
+            _rdbtnlstManufact.DataBind();
+
+
 
             #region Working Code for Prod details
             //------------------------------------------WORKING STATIC
@@ -29,9 +33,9 @@ namespace WebServiceDeserialization
             ListManufact = Manufacturer.ListManufacturer();
             ListEDP = EDPList.ListingEDP();
 
-            for (int i= 0; i < ListManufact.Count; i++)
+            for (int i = 0; i < ListManufact.Count; i++)
             {
-                Manufacturers += ListManufact[i]+"☺";
+                Manufacturers += ListManufact[i] + "☺";
             }
             for (int i = 0; i < ListEDP.Count; i++)
             #region FORSTART
@@ -100,79 +104,11 @@ namespace WebServiceDeserialization
                 DetailString += "</br>";
             }
             Response.Write(DetailString);
-            Response.Write(Manufacturers);
+            //Response.Write(Manufacturers);
             Response.Write("</br></br></br>");
 
             //------------------------------------------WORKING STATIC
             #endregion
         }
-        protected void _rptrEDP_PreRender(object sender, EventArgs e)
-        {
-
-            //foreach (RepeaterItem item in _rptrEDP.Items)
-            //{
-            //    if (item.ItemType == ListItemType.AlternatingItem || item.ItemType == ListItemType.Item)
-            //    {
-            //        Label lbl_Name = (Label)item.FindControl("lbl_Name");
-            //        Label lbl_Description = (Label)item.FindControl("lbl_Description");
-            //        Label lbl_Price = (Label)item.FindControl("lbl_Price");
-            //        Label lbl_Manufacturer = (Label)item.FindControl("lbl_Manufacturer");
-            //        Label lbl_Availability = (Label)item.FindControl("lbl_Availability");
-            //        Image img_Prod = (Image)item.FindControl("img_Prod");
-            //        List<string> ListEDP;
-            //        ListEDP = EDPList.ListingEDP();
-            //        for (int i = 0; i < ListEDP.Count; i++)
-            //        {
-            //            string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
-            //            XmlTextReader reader = new XmlTextReader(URL);
-            //            reader.WhitespaceHandling = WhitespaceHandling.Significant;
-            //            if (reader.Name == "name")
-            //            {
-            //                lbl_Name.Text = reader.ReadElementString("name");
-            //            }
-            //            else { lbl_Name.Text = "empty"; }
-            //            if (reader.Name == "description")
-            //            {
-            //                lbl_Description.Text = reader.ReadElementString("description");
-            //            }
-            //            else { lbl_Description.Text = "empty"; }
-            //            if (reader.Name == "finalPrice")
-            //            {
-            //                lbl_Price.Text = reader.ReadElementString("finalPrice");
-            //            }
-            //            else { lbl_Price.Text = "empty"; }
-            //            if (reader.Name == "xlg")
-            //            {
-            //                img_Prod.ImageUrl = reader.ReadElementString("xlg");
-            //            }
-            //            else { img_Prod.ImageUrl = "empty"; }
-            //            if (reader.Name == "manufacturer")
-            //            {
-            //                lbl_Manufacturer.Text = reader.ReadElementString("manufacturer");
-            //            }
-            //            else { lbl_Manufacturer.Text = "empty"; }
-            //            if (reader.Name == "availabilityDescription")
-            //            {
-            //                lbl_Availability.Text = reader.ReadElementString("availabilityDescription");
-            //            }
-            //            else { lbl_Availability.Text = "empty"; }
-
-            //        }
-            //    }
-            //}
-        }
     }
 }
-//    ProdDetail ProdInfo = new ProdDetail();
-//    Label lbl_Name = (Label)item.FindControl("lbl_Name");
-//    string NAME = "", DESCRIPTION = "", FINALPRICE = "", XLG = "", MANUFACTURER = "", AVAILABILITYDESCRIPTION = "";
-//    string EDP = "";
-
-//    List<string> ListEDP;
-//    ListEDP = EDPList.ListingEDP();
-//    for (int i = 0; i < ListEDP.Count; i++)
-//    {
-//        EDP = ListEDP[i];
-//        ProdInfo.showDetails(EDP, NAME, DESCRIPTION, FINALPRICE, XLG, MANUFACTURER, AVAILABILITYDESCRIPTION);
-//    }
-//}
