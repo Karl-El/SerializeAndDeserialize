@@ -30,7 +30,7 @@ namespace WebServiceDeserialization
                 string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
                 XmlTextReader reader = new XmlTextReader(URL);
                 reader.WhitespaceHandling = WhitespaceHandling.Significant;
-                DetailString += "<div class='row'><div class='col-sm-4'></div><div class='col-sm-4'><div class='panel panel-info'><div class='panel-body'>";
+                DetailString += "<div class='row'><div class='col-sm-4'></div><div class='col-sm-4'><div class='panel panel-danger'><div class='panel-body'>";
                 while (reader.Read())
                 {
                     if (reader.Name == "name")
