@@ -15,7 +15,7 @@ namespace WebServiceDeserialization
 
             string EDPString = Request.QueryString["id"];
             Response.Write("EDP: " + EDPString + "</br>");
-            string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist="+ EDPString + "&ignoreCatalog=true";
+            string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + EDPString + "&ignoreCatalog=true";
             XmlTextReader reader = new XmlTextReader(URL);
             //reader.WhitespaceHandling = WhitespaceHandling.Significant;
             string DetailString = "";
@@ -93,8 +93,12 @@ namespace WebServiceDeserialization
                 }
                 if (reader.Name == "xlg")
                 {
+                    string ImageURL = reader.ReadElementString("xlg");
                     DetailString += "Image URL: ";
-                    DetailString += reader.ReadElementString("xlg");
+                    DetailString += ImageURL+ "</br>";
+                    DetailString += "<img src =";
+                    DetailString += '"' + ImageURL + '"';
+                    DetailString += " class='img-responsive img-thumbnail' width='150' height='150'>";
                     DetailString += "</br>";
                 }
             }

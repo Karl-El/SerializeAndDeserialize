@@ -19,7 +19,10 @@ namespace WebServiceDeserialization
             _rptrEDP.DataSource = EDPList.ListingEDP();
             _rptrEDP.DataBind();
 
-            /*List<string> ListEDP;
+            #region Working Code for Prod details
+            //------------------------------------------WORKING STATIC
+
+            List<string> ListEDP;
             ListEDP = EDPList.ListingEDP();
             for (int i = 0; i < ListEDP.Count; i++)
             #region FORSTART
@@ -27,6 +30,7 @@ namespace WebServiceDeserialization
                 string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
                 XmlTextReader reader = new XmlTextReader(URL);
                 reader.WhitespaceHandling = WhitespaceHandling.Significant;
+                DetailString += "<div class='row'><div class='col-sm-4'></div><div class='col-sm-4'><div class='panel panel-info'><div class='panel-body'>";
                 while (reader.Read())
                 {
                     if (reader.Name == "name")
@@ -67,71 +71,79 @@ namespace WebServiceDeserialization
                     }
                     if (reader.Name == "xlg")
                     {
+                        string ImageURL = reader.ReadElementString("xlg");
                         DetailString += "Image URL: ";
-                        DetailString += reader.ReadElementString("xlg");
+                        DetailString += ImageURL + "</br>";
+                        DetailString += "<img src =";
+                        DetailString += '"' + ImageURL + '"';
+                        DetailString += " class='img-responsive img-thumbnail center-block' width='150' height='150' alt='Image Not Available'>";
                         DetailString += "</br>";
                     }
                 }
                 #endregion
+                DetailString += "</div></div ></div ><div class='col-sm-4'></div></div>";
                 DetailString += "</br>";
             }
             Response.Write(DetailString);
-            Response.Write("</br></br></br>");*/
+            Response.Write("</br></br></br>");
+
+            //------------------------------------------WORKING STATIC
+            #endregion
         }
         protected void _rptrEDP_PreRender(object sender, EventArgs e)
         {
 
-            foreach (RepeaterItem item in _rptrEDP.Items)
-            {
-                if (item.ItemType == ListItemType.AlternatingItem || item.ItemType == ListItemType.Item)
-                {
-                    Label lbl_Name = (Label)item.FindControl("lbl_Name");
-                    Label lbl_Description = (Label)item.FindControl("lbl_Description");
-                    Label lbl_Price = (Label)item.FindControl("lbl_Price");
-                    Label lbl_Manufacturer = (Label)item.FindControl("lbl_Manufacturer");
-                    Label lbl_Availability = (Label)item.FindControl("lbl_Availability");
-                    Image img_Prod = (Image)item.FindControl("img_Prod");
-                    List<string> ListEDP;
-                    ListEDP = EDPList.ListingEDP();
-                    for (int i = 0; i < ListEDP.Count; i++)
-                    {
-                        string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
-                        XmlTextReader reader = new XmlTextReader(URL);
-                        reader.WhitespaceHandling = WhitespaceHandling.Significant;
-                        if (reader.Name == "name")
-                        {
-                            lbl_Name.Text = reader.ReadElementString("name");
-                        }
-                        else { lbl_Name.Text = "empty"; }
-                        if (reader.Name == "description")
-                        {
-                            lbl_Description.Text = reader.ReadElementString("description");
-                        }
-                        else { lbl_Description.Text = "empty"; }
-                        if (reader.Name == "finalPrice")
-                        {
-                            lbl_Price.Text = reader.ReadElementString("finalPrice");
-                        }
-                        else { lbl_Price.Text = "empty"; }
-                        if (reader.Name == "xlg")
-                        {
-                            img_Prod.ImageUrl = reader.ReadElementString("xlg");
-                        }
-                        else { img_Prod.ImageUrl = "empty"; }
-                        if (reader.Name == "manufacturer")
-                        {
-                            lbl_Manufacturer.Text = reader.ReadElementString("manufacturer");
-                        }
-                        else { lbl_Manufacturer.Text = "empty"; }
-                        if (reader.Name == "availabilityDescription")
-                        {
-                            lbl_Availability.Text = reader.ReadElementString("availabilityDescription");
-                        }
-                        else { lbl_Availability.Text = "empty"; }
+            //foreach (RepeaterItem item in _rptrEDP.Items)
+            //{
+            //    if (item.ItemType == ListItemType.AlternatingItem || item.ItemType == ListItemType.Item)
+            //    {
+            //        Label lbl_Name = (Label)item.FindControl("lbl_Name");
+            //        Label lbl_Description = (Label)item.FindControl("lbl_Description");
+            //        Label lbl_Price = (Label)item.FindControl("lbl_Price");
+            //        Label lbl_Manufacturer = (Label)item.FindControl("lbl_Manufacturer");
+            //        Label lbl_Availability = (Label)item.FindControl("lbl_Availability");
+            //        Image img_Prod = (Image)item.FindControl("img_Prod");
+            //        List<string> ListEDP;
+            //        ListEDP = EDPList.ListingEDP();
+            //        for (int i = 0; i < ListEDP.Count; i++)
+            //        {
+            //            string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
+            //            XmlTextReader reader = new XmlTextReader(URL);
+            //            reader.WhitespaceHandling = WhitespaceHandling.Significant;
+            //            if (reader.Name == "name")
+            //            {
+            //                lbl_Name.Text = reader.ReadElementString("name");
+            //            }
+            //            else { lbl_Name.Text = "empty"; }
+            //            if (reader.Name == "description")
+            //            {
+            //                lbl_Description.Text = reader.ReadElementString("description");
+            //            }
+            //            else { lbl_Description.Text = "empty"; }
+            //            if (reader.Name == "finalPrice")
+            //            {
+            //                lbl_Price.Text = reader.ReadElementString("finalPrice");
+            //            }
+            //            else { lbl_Price.Text = "empty"; }
+            //            if (reader.Name == "xlg")
+            //            {
+            //                img_Prod.ImageUrl = reader.ReadElementString("xlg");
+            //            }
+            //            else { img_Prod.ImageUrl = "empty"; }
+            //            if (reader.Name == "manufacturer")
+            //            {
+            //                lbl_Manufacturer.Text = reader.ReadElementString("manufacturer");
+            //            }
+            //            else { lbl_Manufacturer.Text = "empty"; }
+            //            if (reader.Name == "availabilityDescription")
+            //            {
+            //                lbl_Availability.Text = reader.ReadElementString("availabilityDescription");
+            //            }
+            //            else { lbl_Availability.Text = "empty"; }
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
         }
     }
 }
