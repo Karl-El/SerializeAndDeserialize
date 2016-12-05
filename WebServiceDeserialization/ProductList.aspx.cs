@@ -12,6 +12,7 @@ namespace WebServiceDeserialization
     {
         string DetailString = "";
         EDPList EDPList = new EDPList();
+        Manufacturer Manufacturer = new Manufacturer();
 
         protected void Page_Load(object sender, EventArgs e)
         {
