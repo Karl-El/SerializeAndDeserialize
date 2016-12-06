@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true"></asp:RadioButtonList>
+        <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
     </div>
     <div class="col-sm-4"></div>
     <%--<asp:Repeater ID="_rptrEDP" runat="server" OnPreRender="_rptrEDP_PreRender">

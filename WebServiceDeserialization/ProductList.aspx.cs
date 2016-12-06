@@ -10,18 +10,15 @@ namespace WebServiceDeserialization
 {
     public partial class ProductList : System.Web.UI.Page
     {
-        string Manufacturers = "";
+        string SelectedManufact = "";
         string DetailString = "";
         EDPList EDPList = new EDPList();
         Manufacturer Manufacturer = new Manufacturer();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //_rptrEDP.DataSource = EDPList.ListingEDP();
-            //_rptrEDP.DataBind();
-            _rdbtnlstManufact.DataSource = Manufacturer.ListManufacturer();
-            _rdbtnlstManufact.DataBind();
+            //_rdbtnlstManufact.DataSource = Manufacturer.ListManufacturer();
+            //_rdbtnlstManufact.DataBind();
 
 
 
@@ -32,7 +29,13 @@ namespace WebServiceDeserialization
             List<string> ListManufact;
             ListManufact = Manufacturer.ListManufacturer();
             ListEDP = EDPList.ListingEDP();
-            
+            if (!IsPostBack)
+            {
+                for (int i = 0; i < ListManufact.Count; i++)
+                {
+                    _rdbtnlstManufact.Items.Add(new ListItem(ListManufact[i]));
+                }
+            }
             for (int i = 0; i < ListEDP.Count; i++)
             #region FORSTART
             {
@@ -100,11 +103,16 @@ namespace WebServiceDeserialization
                 DetailString += "</br>";
             }
             Response.Write(DetailString);
-            //Response.Write(Manufacturers);
             Response.Write("</br></br></br>");
 
             //------------------------------------------WORKING STATIC
             #endregion
+        }
+
+        protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('"+ SelectedManufact + "')", true);
         }
     }
 }
