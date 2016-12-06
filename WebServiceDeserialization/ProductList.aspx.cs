@@ -10,6 +10,7 @@ namespace WebServiceDeserialization
 {
     public partial class ProductList : System.Web.UI.Page
     {
+        string ReadManufact = "";
         string SelectedManufact = "";
         string DetailString = "";
         EDPList EDPList = new EDPList();
@@ -25,9 +26,36 @@ namespace WebServiceDeserialization
         protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + SelectedManufact + "')", true);
-        }
+            List<string> ListEDP;
+            ListEDP = EDPList.ListingEDP();
 
+            for (int i = 0; i < ListEDP.Count; i++)
+            {
+                #region FOR START READ A SPECIFIC BRAND/MANUFACTURER
+                {
+                    string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
+                    XmlTextReader reader = new XmlTextReader(URL);
+                    reader.WhitespaceHandling = WhitespaceHandling.Significant;
+                    while (reader.Read())
+                    {
+                        if (reader.Name == "manufacturer")
+                        {
+                            ReadManufact = reader.ReadElementString("manufacturer");
+                            if (ReadManufact == SelectedManufact)
+                            {
+                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + SelectedManufact + ReadManufact + "')", true);
+                            }
+                            else
+                            {
+                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('hahahhahhahaha')", true);
+                            }
+                        }
+                    }
+                }
+                #endregion
+            }
+          
+        }
         protected void _btnClearFilter_Click(object sender, EventArgs e)
         {
             _rdbtnlstManufact.ClearSelection();
