@@ -40,10 +40,14 @@ namespace WebServiceDeserialization
                     {
                         if (reader.Name == "manufacturer")
                         {
+                            /*--------------------COMPARE---------------------------*/
                             ReadManufact = reader.ReadElementString("manufacturer");
                             if (ReadManufact == SelectedManufact)
                             {
-                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + SelectedManufact + ReadManufact + "')", true);
+                                List<string> BrandEDP = new List<string>();
+                                BrandEDP.Add(ListEDP[i]);
+
+                                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + BrandEDP + "')", true);
                             }
                             else
                             {
@@ -54,7 +58,7 @@ namespace WebServiceDeserialization
                 }
                 #endregion
             }
-          
+
         }
         protected void _btnClearFilter_Click(object sender, EventArgs e)
         {
