@@ -17,18 +17,26 @@ namespace WebServiceDeserialization
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //_rdbtnlstManufact.DataSource = Manufacturer.ListManufacturer();
-            //_rdbtnlstManufact.DataBind();
+            DataSourceRadioBrand();
+            AllProducts();
 
+        }
 
+        protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + SelectedManufact + "')", true);
+        }
 
-            #region Working Code for Prod details
-            //------------------------------------------WORKING STATIC
+        protected void _btnClearFilter_Click(object sender, EventArgs e)
+        {
+            _rdbtnlstManufact.ClearSelection();
+        }
 
-            List<string> ListEDP;
+        public void DataSourceRadioBrand()
+        {
             List<string> ListManufact;
             ListManufact = Manufacturer.ListManufacturer();
-            ListEDP = EDPList.ListingEDP();
             if (!IsPostBack)
             {
                 for (int i = 0; i < ListManufact.Count; i++)
@@ -36,6 +44,15 @@ namespace WebServiceDeserialization
                     _rdbtnlstManufact.Items.Add(new ListItem(ListManufact[i]));
                 }
             }
+        }
+
+        public void AllProducts()
+        {
+            #region Working Code for Prod details
+            //------------------------------------------WORKING STATIC
+
+            List<string> ListEDP;
+            ListEDP = EDPList.ListingEDP();
             for (int i = 0; i < ListEDP.Count; i++)
             #region FORSTART
             {
@@ -107,12 +124,7 @@ namespace WebServiceDeserialization
 
             //------------------------------------------WORKING STATIC
             #endregion
-        }
 
-        protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('"+ SelectedManufact + "')", true);
         }
     }
 }
