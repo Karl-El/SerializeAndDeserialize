@@ -23,7 +23,6 @@ namespace WebServiceDeserialization
 
         protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int FalseCount =0;
             string ReadManufact = "";
             string SelectedManufact = "";
             SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
@@ -58,15 +57,8 @@ namespace WebServiceDeserialization
                                 //Response.Write(EDPSTRINGLISTBRANDED);
                                 break;
                             }
-                            else
-                            {
-                                
-
-                            }
                         }
-                        FalseCount++;
                     }
-                    Response.Write(FalseCount);
                 }
                 #endregion
             }
