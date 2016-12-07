@@ -15,7 +15,7 @@ namespace WebServiceDeserialization
             #region Working Code for Prod details
             //------------------------------------------WORKING STATIC
 
-           // List<string> ReadEDP;
+            // List<string> ReadEDP;
             //ListEDP = EDPList.ListingEDP();
             for (int i = 0; i < ReadEDP.Count; i++)
             #region FORSTART
@@ -23,7 +23,7 @@ namespace WebServiceDeserialization
                 string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ReadEDP[i] + "&ignoreCatalog=true";
                 XmlTextReader reader = new XmlTextReader(URL);
                 reader.WhitespaceHandling = WhitespaceHandling.Significant;
-                DetailString += "<div class='row'><div class='col-sm-4'></div><div class='col-sm-4'><div class='panel panel-danger'><div class='panel-body'>";
+                DetailString += "<div class='panel panel-danger'><div class='panel-body'>";
                 while (reader.Read())
                 {
 
@@ -76,12 +76,10 @@ namespace WebServiceDeserialization
                         DetailString += "<img src =";
                         DetailString += '"' + ImageURL + '"';
                         DetailString += " class='img-responsive img-thumbnail center-block' width='150' height='150' alt='Image Not Available'>";
-                        DetailString += "</br>";
-                        DetailString += "</br>";
                     }
                 }
                 #endregion
-                DetailString += "</div></div ></div ><div class='col-sm-4'></div></div>";
+                DetailString += "</div></div >";
                 DetailString += "</br>";
             }
 

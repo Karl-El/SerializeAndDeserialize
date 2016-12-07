@@ -67,9 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\loader.gif" />
+    <Content Include="Images\loader3.gif" />
     <Content Include="packages.config" />
     <Content Include="ProductDetails.aspx" />
     <Content Include="ProductList.aspx" />
+    <Content Include="Scripts\loadImg.js" />
+    <Content Include="Scripts\modernizr.js" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Fonts\fontawesome-webfont.ttf" />

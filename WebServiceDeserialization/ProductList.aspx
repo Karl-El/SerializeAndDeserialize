@@ -3,12 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <asp:Button ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click" />
-        <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <asp:Button ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click" />
+                <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-8">
+        <asp:PlaceHolder ID="_plchldrProdInfo" runat="server"></asp:PlaceHolder>
+    </div>
+
+
+    <%--<div class="col-sm-4"></div>--%>
     <%--<asp:Repeater ID="_rptrEDP" runat="server" OnPreRender="_rptrEDP_PreRender">
         <ItemTemplate>
             <div class="row">

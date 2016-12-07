@@ -27,7 +27,6 @@ namespace WebServiceDeserialization
                         string elementstring= reader.ReadElementString("manufacturer");
                         Manufact.Add(elementstring);
                     }
-
                 }
             }
             Manufact = Manufact.Distinct().ToList();

@@ -56,14 +56,16 @@ namespace WebServiceDeserialization
             List<string> EDPs;
             EDPs = EDPList.ListingEDP();
             ProdInfo = ProdDetail.AllProducts(EDPs);
-            Response.Write(ProdInfo);
+            _plchldrProdInfo.Controls.Add(new LiteralControl(ProdInfo));
+            //Response.Write(ProdInfo);
         }
         public void ProdByBrand()
         {
             List<string> EDPs;
             EDPs = EDPbyBrand.ListingBrandEDP(SelectedManufact);
             ProdInfo = ProdDetail.AllProducts(EDPs);
-            Response.Write(ProdInfo);
+            _plchldrProdInfo.Controls.Add(new LiteralControl(ProdInfo));
+            //Response.Write(ProdInfo);
         }
 
     }
