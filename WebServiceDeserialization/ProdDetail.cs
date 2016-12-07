@@ -53,44 +53,4 @@ namespace WebServiceDeserialization
 
 }
 
-//Response.Write(valuetext);
-//Response.Write("</br>");
-
-//String inputurl = ("http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + inputedp + "&ignoreCatalog=true"); //  + 6926988/*EDP*/ +
-//System.Xml.XmlTextReader reader = new XmlTextReader(inputurl);
-//// reader.WhitespaceHandling = WhitespaceHandling.Significant;
-//while (reader.Read())
-//{
-//    if (reader.Name == "store")
-//    {
-//        store = reader.ReadElementString("store");// show all EDP     
-//    }
-//    //============================
-//    if (reader.Name == "name")
-//    {
-//        name = reader.ReadElementString("name");// show all EDP     
-//    }
-//    if (reader.Name == "description")
-//    {
-//        description = reader.ReadElementString("description");// show all EDP     
-//    }
-//    if (reader.Name == "finalPrice")
-//    {
-//        finalPrice = reader.ReadElementString("finalPrice");// show all EDP     
-//    }
-//    if (reader.Name == "xlg")  // IMAGE  & SIZE  // String value
-//    {
-//        xlg = reader.ReadElementString("xlg");// show all EDP      // IMAGE SOURCE
-//    }
-//    if (reader.Name == "manufacturer")
-//    {
-//        manufacturer = reader.ReadElementString("manufacturer");// show all EDP     
-//    }
-//    if (reader.Name == "availabilityDescription")
-//    {
-//        availabilityDescription = reader.ReadElementString("availabilityDescription");// show all EDP     
-//    }
-
-//    //reader.Name == "productDetails" ||reader.Name == "manufacturer"
-//}
 

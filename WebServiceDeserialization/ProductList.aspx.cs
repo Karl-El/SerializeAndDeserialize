@@ -10,35 +10,22 @@ namespace WebServiceDeserialization
 {
     public partial class ProductList : System.Web.UI.Page
     {
-
+        string SelectedManufact = "";
         string DetailString = "";
         EDPList EDPList = new EDPList();
         Manufacturer Manufacturer = new Manufacturer();
         EDPbyBrand EDPbyBrand = new EDPbyBrand();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DataSourceRadioBrand();
-            AllProducts();
+            //AllProducts();
         }
 
         protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string SelectedManufact = "";
             SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
-            List<string> EDPManufact = new List<string>();
-            EDPManufact = EDPbyBrand.ListingBrandEDP(SelectedManufact);
-
-
-            //========================================================Count/View the List of EDP
-            string EDPSTRINGLISTBRANDED = "";
-            for (int i = 0; i < EDPManufact.Count(); i++)
-            {
-                EDPSTRINGLISTBRANDED += EDPManufact[i];
-                EDPSTRINGLISTBRANDED += "</br>";
-            }
-            Response.Write(EDPSTRINGLISTBRANDED);
-
-
+            BrandProduct();
         }
 
         protected void _btnClearFilter_Click(object sender, EventArgs e)
@@ -75,6 +62,7 @@ namespace WebServiceDeserialization
                 DetailString += "<div class='row'><div class='col-sm-4'></div><div class='col-sm-4'><div class='panel panel-danger'><div class='panel-body'>";
                 while (reader.Read())
                 {
+
                     if (reader.Name == "name")
                     {
                         DetailString += "Name: ";
@@ -137,6 +125,23 @@ namespace WebServiceDeserialization
 
             //------------------------------------------WORKING STATIC
             #endregion
+
+        }
+
+        public void BrandProduct()
+        {
+            List<string> EDPManufact = new List<string>();
+            EDPManufact = EDPbyBrand.ListingBrandEDP(SelectedManufact);
+
+
+            //========================================================Count/View the List of EDP
+            string EDPSTRINGLISTBRANDED = "";
+            for (int i = 0; i < EDPManufact.Count(); i++)
+            {
+                EDPSTRINGLISTBRANDED += EDPManufact[i];
+                EDPSTRINGLISTBRANDED += "</br>";
+            }
+            Response.Write(EDPSTRINGLISTBRANDED);
 
         }
     }
