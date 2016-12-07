@@ -14,9 +14,11 @@
     <div class="col-sm-8">
         <asp:PlaceHolder ID="_plchldrProdInfo" runat="server"></asp:PlaceHolder>
     </div>
+    
+</asp:Content>
 
 
-    <%--<div class="col-sm-4"></div>--%>
+<%--<div class="col-sm-4"></div>--%>
     <%--<asp:Repeater ID="_rptrEDP" runat="server" OnPreRender="_rptrEDP_PreRender">
         <ItemTemplate>
             <div class="row">
@@ -41,4 +43,3 @@
             </div>
         </ItemTemplate>
     </asp:Repeater>--%>
-</asp:Content>
