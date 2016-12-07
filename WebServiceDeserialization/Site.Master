@@ -20,7 +20,7 @@
         /* Paste this css to your style sheet file or under head tag */
         /* This only works with JavaScript,
         if it's not present, don't show loader */
-        .no-js #loader {
+        /*.no-js #loader {
             display: none;
         }
 
@@ -29,7 +29,7 @@
             position: absolute;
             left: 100px;
             top: 0;
-        }
+        }*/
 
         .se-pre-con {
             position: fixed;
@@ -41,7 +41,7 @@
             background: url('../Images/loader3.gif') center no-repeat #fff;
         }
     </style>
-    <%--<script type='text/javascript'>
+    <script type='text/javascript'>
         $(function LoadImage() {
             $('img').imgPreload()
         })
@@ -54,37 +54,36 @@
             $(".se-pre-con").fadeOut("slow");;
         });
     </script>
-    <script>
-        //paste this code under head tag or in a seperate js file.
-        // Wait for window load
-        $('form').live('submit', function () {
-            // Animate loader off screen
-            $(".se-pre-con").fadeOut("slow");;
-        });
-    </script>--%>
 
-    <script type="text/javascript">
-      function ShowProgressBar() {
-          document.getElementById('LoadingDIV').style.visibility = 'visible';
-      }
 
-      function HideProgressBar() {
-          document.getElementById('LoadingDIV').style.visibility = "hidden";
-      }
-    </script>
 
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body onload="javascript:HideProgressBar()">
+<body>
     <div class="se-pre-con" id="LoadingDIV"></div>
-    <form id="form1" runat="server">
+    <form runat="server" onsubmit="ShowLoading()">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    <script type="text/javascript">
+        function ShowLoading(e) {
+            var div = document.createElement('div');
+            var img = document.createElement('img');
+            //img.src = '../Images/loader3.gif';
+            div.innerHTML = "<br /><br /><br /><br /><br /><br /><br /><br /><br />";
+            div.style.cssText = 'position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 9999;background: url("../Images/loader3.gif") center no-repeat #fff';
+            div.appendChild(img);
+            document.body.appendChild(div);
+
+            // These 2 lines cancel form submission, so only use if needed.
+            //window.event.cancelBubble = true;
+            //e.stopPropagation();
+        }
+    </script>
 </body>
 </html>
