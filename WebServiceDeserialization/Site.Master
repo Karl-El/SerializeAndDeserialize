@@ -16,7 +16,7 @@
 
 
 
-     <style>
+    <style>
         /* Paste this css to your style sheet file or under head tag */
         /* This only works with JavaScript,
         if it's not present, don't show loader */
@@ -41,12 +41,12 @@
             background: url('../Images/loader3.gif') center no-repeat #fff;
         }
     </style>
-    <script type='text/javascript'>
-        $(function () {
+    <%--<script type='text/javascript'>
+        $(function LoadImage() {
             $('img').imgPreload()
         })
     </script>
-     <script>
+    <script>
         //paste this code under head tag or in a seperate js file.
         // Wait for window load
         $(window).on('load', function () {
@@ -54,15 +54,32 @@
             $(".se-pre-con").fadeOut("slow");;
         });
     </script>
+    <script>
+        //paste this code under head tag or in a seperate js file.
+        // Wait for window load
+        $('form').live('submit', function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>--%>
 
+    <script type="text/javascript">
+      function ShowProgressBar() {
+          document.getElementById('LoadingDIV').style.visibility = 'visible';
+      }
+
+      function HideProgressBar() {
+          document.getElementById('LoadingDIV').style.visibility = "hidden";
+      }
+    </script>
 
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <div class="se-pre-con"></div>
+<body onload="javascript:HideProgressBar()">
+    <div class="se-pre-con" id="LoadingDIV"></div>
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

@@ -6,15 +6,14 @@
     <div class="col-sm-4">
         <div class="panel panel-info">
             <div class="panel-body">
-                <asp:Button ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click"/>
-                <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
+                <asp:Button ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click" OnClientClick="ShowProgressBar()" />
+                <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged" OnClientClick="ShowProgressBar()" ></asp:RadioButtonList>
             </div>
         </div>
     </div>
     <div class="col-sm-8">
         <asp:PlaceHolder ID="_plchldrProdInfo" runat="server"></asp:PlaceHolder>
     </div>
-    
 </asp:Content>
 
 

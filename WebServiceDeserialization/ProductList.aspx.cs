@@ -49,6 +49,7 @@ namespace WebServiceDeserialization
                     _rdbtnlstManufact.Items.Add(new ListItem(ListManufact[i]));
                 }
             }
+            _rdbtnlstManufact.Attributes.Add("OnClientClick", "javascript:ShowProgressBar()");
         }
 
         public void AllProducts()
