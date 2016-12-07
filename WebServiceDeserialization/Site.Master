@@ -13,10 +13,10 @@
     <script src="Scripts/modernizr.js"></script>
     <script src="Scripts/bootstrap.js"></script>
 
-    
-    
-    
-<%--    <style>
+
+
+
+     <style>
         /* Paste this css to your style sheet file or under head tag */
         /* This only works with JavaScript,
         if it's not present, don't show loader */
@@ -46,16 +46,15 @@
             $('img').imgPreload()
         })
     </script>
-    <script>
+     <script>
         //paste this code under head tag or in a seperate js file.
         // Wait for window load
-        $(window).on('load',function() {
+        $(window).on('load', function () {
             // Animate loader off screen
             $(".se-pre-con").fadeOut("slow");;
         });
-    </script>--%>
+    </script>
 
-  
 
 
 
@@ -64,18 +63,6 @@
 </head>
 <body>
     <div class="se-pre-con"></div>
-    <asp:UpdateProgress ID="prgLoadingStatus" runat="server" DynamicLayout="true">
-    <ProgressTemplate>
-        <div id="overlay">
-            <div id="modalprogress">
-                <div id="theprogress">
-                    <asp:Image ID="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/loader3.gif" />
-                    Please wait...
-                </div>
-            </div>
-        </div>
-    </ProgressTemplate>
-</asp:UpdateProgress>  
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

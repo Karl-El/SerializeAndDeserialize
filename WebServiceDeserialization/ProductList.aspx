@@ -6,7 +6,7 @@
     <div class="col-sm-4">
         <div class="panel panel-info">
             <div class="panel-body">
-                <asp:Button ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click" />
+                <asp:Button ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click"/>
                 <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
             </div>
         </div>
