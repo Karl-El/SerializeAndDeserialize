@@ -18,59 +18,26 @@ namespace WebServiceDeserialization
         protected void Page_Load(object sender, EventArgs e)
         {
             DataSourceRadioBrand();
-            //AllProducts();
+            AllProducts();
         }
 
         protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string EDPSTRINGLISTBRANDED = "";
             string SelectedManufact = "";
             SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
             List<string> EDPManufact = new List<string>();
             EDPManufact = EDPbyBrand.ListingBrandEDP(SelectedManufact);
 
+
+            //========================================================Count/View the List of EDP
+            string EDPSTRINGLISTBRANDED = "";
             for (int i = 0; i < EDPManufact.Count(); i++)
             {
                 EDPSTRINGLISTBRANDED += EDPManufact[i];
                 EDPSTRINGLISTBRANDED += "</br>";
             }
             Response.Write(EDPSTRINGLISTBRANDED);
-            //string ReadManufact = "";
-            //string EDPforBrand = "";
-            //List<string> EDPBrand = new List<string>();
 
-            //List<string> ListEDP;
-            //ListEDP = EDPList.ListingEDP();
-
-            //for (int i = 0; i < ListEDP.Count; i++)
-            //{
-            //    #region FOR START READ A SPECIFIC BRAND/MANUFACTURER
-            //    {
-            //        string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
-            //        XmlTextReader reader = new XmlTextReader(URL);
-            //        reader.WhitespaceHandling = WhitespaceHandling.Significant;
-            //        while (reader.Read())
-            //        {
-            //            if (reader.Name == "edp")
-            //            {
-            //                EDPforBrand = reader.ReadElementString("edp");
-            //            }
-            //            if (reader.Name == "manufacturer")
-            //            {
-            //                ReadManufact = reader.ReadElementString("manufacturer");
-            //                if (ReadManufact == SelectedManufact)
-            //                {
-            //                    string EDPSTRINGLISTBRANDED = "";
-            //                    EDPBrand.Add(EDPforBrand);
-            //                    EDPSTRINGLISTBRANDED += EDPforBrand;
-            //                    //Response.Write(EDPSTRINGLISTBRANDED);
-            //                    break;
-            //                }
-            //            }
-            //        }
-            //    }
-            //    #endregion
-            //}
 
         }
 
