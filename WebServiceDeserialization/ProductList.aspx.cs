@@ -11,10 +11,10 @@ namespace WebServiceDeserialization
     public partial class ProductList : System.Web.UI.Page
     {
         string SelectedManufact = "";
-        string DetailString = "";
         EDPList EDPList = new EDPList();
         Manufacturer Manufacturer = new Manufacturer();
         EDPbyBrand EDPbyBrand = new EDPbyBrand();
+        ProdDetail ProdDetail = new ProdDetail();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +25,7 @@ namespace WebServiceDeserialization
         protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
-            BrandProduct();
+
         }
 
         protected void _btnClearFilter_Click(object sender, EventArgs e)
@@ -46,103 +46,5 @@ namespace WebServiceDeserialization
             }
         }
 
-        public void AllProducts()
-        {
-            #region Working Code for Prod details
-            //------------------------------------------WORKING STATIC
-
-            List<string> ListEDP;
-            ListEDP = EDPList.ListingEDP();
-            for (int i = 0; i < ListEDP.Count; i++)
-            #region FORSTART
-            {
-                string URL = "http://afs-sl-pservice01.afservice.org:8080/productservice2/getProductInfo/pcmall?edplist=" + ListEDP[i] + "&ignoreCatalog=true";
-                XmlTextReader reader = new XmlTextReader(URL);
-                reader.WhitespaceHandling = WhitespaceHandling.Significant;
-                DetailString += "<div class='row'><div class='col-sm-4'></div><div class='col-sm-4'><div class='panel panel-danger'><div class='panel-body'>";
-                while (reader.Read())
-                {
-
-                    if (reader.Name == "name")
-                    {
-                        DetailString += "Name: ";
-                        DetailString += reader.ReadElementString("name");
-                        DetailString += "</br>";
-                        DetailString += "</br>";
-                    }
-                    if (reader.Name == "manufacturer")
-                    {
-                        DetailString += "Manufacturer: ";
-                        DetailString += reader.ReadElementString("manufacturer");
-                        DetailString += "</br>";
-                        DetailString += "</br>";
-                    }
-                    if (reader.Name == "description")
-                    {
-                        DetailString += "Description: ";
-                        DetailString += reader.ReadElementString("description");
-                        DetailString += "</br>";
-                        DetailString += "</br>";
-                    }
-                    if (reader.Name == "finalPrice")
-                    {
-                        DetailString += "Final Price: ";
-                        DetailString += reader.ReadElementString("finalPrice");
-                        DetailString += "</br>";
-                        DetailString += "</br>";
-                    }
-                    //if (reader.Name == "store")
-                    //{
-                    //    DetailString += "Store: ";
-                    //    DetailString += reader.ReadElementString("store");
-                    //    DetailString += "</br>";
-                    //}
-                    if (reader.Name == "availabilityDescription")
-                    {
-                        DetailString += "Availabilty: ";
-                        DetailString += reader.ReadElementString("availabilityDescription");
-                        DetailString += "</br>";
-                        DetailString += "</br>";
-                    }
-                    if (reader.Name == "xlg")
-                    {
-                        string ImageURL = reader.ReadElementString("xlg");
-                        DetailString += "Image URL: ";
-                        DetailString += ImageURL + "</br>";
-                        DetailString += "<img src =";
-                        DetailString += '"' + ImageURL + '"';
-                        DetailString += " class='img-responsive img-thumbnail center-block' width='150' height='150' alt='Image Not Available'>";
-                        DetailString += "</br>";
-                        DetailString += "</br>";
-                    }
-                }
-                #endregion
-                DetailString += "</div></div ></div ><div class='col-sm-4'></div></div>";
-                DetailString += "</br>";
-            }
-            Response.Write(DetailString);
-            Response.Write("</br></br></br>");
-
-            //------------------------------------------WORKING STATIC
-            #endregion
-
-        }
-
-        public void BrandProduct()
-        {
-            List<string> EDPManufact = new List<string>();
-            EDPManufact = EDPbyBrand.ListingBrandEDP(SelectedManufact);
-
-
-            //========================================================Count/View the List of EDP
-            string EDPSTRINGLISTBRANDED = "";
-            for (int i = 0; i < EDPManufact.Count(); i++)
-            {
-                EDPSTRINGLISTBRANDED += EDPManufact[i];
-                EDPSTRINGLISTBRANDED += "</br>";
-            }
-            Response.Write(EDPSTRINGLISTBRANDED);
-
-        }
     }
 }
