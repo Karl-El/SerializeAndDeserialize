@@ -79,7 +79,6 @@
             div.style.cssText = 'position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 9999; background: url("../Images/loader3.gif") center no-repeat rgba(255, 255, 255, 0.52)';
             div.appendChild(img);
             document.body.appendChild(div);
-            e.fadeOut("slow");
             // These 2 lines cancel form submission, so only use if needed.
             //window.event.cancelBubble = true;
             //e.stopPropagation();

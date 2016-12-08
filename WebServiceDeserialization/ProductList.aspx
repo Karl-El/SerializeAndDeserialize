@@ -7,18 +7,30 @@
         <div class="panel panel-info">
             <div class="panel-body">
                 <asp:Button ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click" />
-                <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
+                <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-success" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
             </div>
         </div>
     </div>
     <div class="col-sm-8">
         <asp:PlaceHolder ID="_plchldrProdInfo" runat="server"></asp:PlaceHolder>
     </div>
+    <script>
+        document.onkeydown = function (ev) {
+            var key;
+            ev = ev || event;
+            key = ev.keyCode;
+            if (key == 37 || key == 38 || key == 39 || key == 40) {
+
+                ev.cancelBubble = true;
+                ev.returnValue = false;
+            }
+        }
+    </script>
 </asp:Content>
 
 
 <%--<div class="col-sm-4"></div>--%>
-    <%--<asp:Repeater ID="_rptrEDP" runat="server" OnPreRender="_rptrEDP_PreRender">
+<%--<asp:Repeater ID="_rptrEDP" runat="server" OnPreRender="_rptrEDP_PreRender">
         <ItemTemplate>
             <div class="row">
                 <div class="col-sm-4">

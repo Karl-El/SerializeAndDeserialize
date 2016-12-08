@@ -19,10 +19,11 @@ namespace WebServiceDeserialization
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSourceRadioBrand();
             if (!IsPostBack)
             {
                 AllProducts();
+                _plchldrProdInfo.Focus();
+                DataSourceRadioBrand();
             }
         }
 
