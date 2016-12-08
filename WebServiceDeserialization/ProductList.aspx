@@ -21,7 +21,7 @@
         document.onkeydown = function (ev) {
             var key;
             ev = ev || event;
-            key = ev.keyCode;
+            key = ev.which;
             if (key == 37 || key == 38 || key == 39 || key == 40 || key == 9) {
 
                 ev.cancelBubble = true;
