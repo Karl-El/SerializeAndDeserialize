@@ -66,8 +66,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\box.gif" />
     <Content Include="Images\loader.gif" />
     <Content Include="Images\loader3.gif" />
+    <Content Include="Images\ripple.gif" />
     <Content Include="packages.config" />
     <Content Include="ProductDetails.aspx" />
     <Content Include="ProductList.aspx" />

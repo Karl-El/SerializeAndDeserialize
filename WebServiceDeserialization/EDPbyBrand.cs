@@ -25,10 +25,11 @@ namespace WebServiceDeserialization
                     reader.WhitespaceHandling = WhitespaceHandling.Significant;
                     while (reader.Read())
                     {
-                        if (reader.Name == "edp")
-                        {
-                            EDPforBrand = reader.ReadElementString("edp");
-                        }
+                        EDPforBrand = ListEDP[i];
+                        //if (reader.Name == "edp")
+                        //{
+                        //    EDPforBrand = reader.ReadElementString("edp");
+                        //}
                         if (reader.Name == "manufacturer")
                         {
                             ReadManufact = reader.ReadElementString("manufacturer");

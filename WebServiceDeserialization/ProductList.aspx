@@ -10,7 +10,7 @@
             </div>
             <div class="panel-body">
                 <asp:Button ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click" />
-                <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-success" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
+                <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
             var key;
             ev = ev || event;
             key = ev.keyCode;
-            if (key == 37 || key == 38 || key == 39 || key == 40) {
+            if (key == 37 || key == 38 || key == 39 || key == 40 || key == 9) {
 
                 ev.cancelBubble = true;
                 ev.returnValue = false;
