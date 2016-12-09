@@ -14,7 +14,7 @@
             <div class="col-sm-4">
                 <div class="card card-outline-danger">
                     <div class="card-block">
-                        <asp:LinkButton ID="lnkbtn_ClearFilter" runat="server" CssClass="btn btn-link"> <i class="fa fa-times"></i>   Clear Filter</asp:LinkButton>
+                        <asp:LinkButton ID="lnkbtn_ClearFilter" runat="server" CssClass="btn btn-link"><i class="fa fa-times"></i>   Clear Filter</asp:LinkButton>
                     </div>
                 </div>
                 <div class="card card-outline-success">

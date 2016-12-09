@@ -82,6 +82,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\checkbox.css" />
     <Content Include="css\font-awesome.css" />
+    <Content Include="css\site.css" />
     <Content Include="images\box.gif" />
     <Content Include="images\pcm-logo-lg.png" />
     <Content Include="js\bootstrap.js" />
