@@ -3,18 +3,47 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="col-sm-4">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <asp:LinkButton ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click"><i class="fa fa-times"></i>   Clear Filter</asp:LinkButton>
-            </div>
+    <div class="row">
+        <div class="panel panel-danger">
+            <%--<div class="panel-heading">
+            </div>--%>
             <div class="panel-body">
-                <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="form-inline">
+                        <div class="input-group col-sm-12">
+                            <asp:TextBox ID="_txtSearch" runat="server" CssClass="form-control" />
+                            <span class="input-group-btn">
+                                <asp:LinkButton runat="server" ID="_btnSearch" CssClass="btn btn-danger"><span class="glyphicon glyphicon-search"></span> Search</asp:LinkButton>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <asp:DropDownList ID="_drpdwnlstRow" runat="server" CssClass="form-control">
+                        <asp:ListItem>5</asp:ListItem>
+                        <asp:ListItem>25</asp:ListItem>
+                        <asp:ListItem>50</asp:ListItem>
+                        <asp:ListItem>100</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-8">
-        <asp:PlaceHolder ID="_plchldrProdInfo" runat="server"></asp:PlaceHolder>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <asp:LinkButton ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click"><i class="fa fa-times"></i>   Clear Filter</asp:LinkButton>
+                </div>
+                <div class="panel-body">
+                    <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <asp:PlaceHolder ID="_plchldrProdInfo" runat="server"></asp:PlaceHolder>
+        </div>
     </div>
     <script type="text/javascript">
         document.onkeydown = function (ev) {

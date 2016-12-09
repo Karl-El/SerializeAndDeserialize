@@ -8,10 +8,10 @@ namespace WebServiceDeserialization
 {
     public class EDPList
     {
-        public List<string> ListingEDP()
+        public List<string> ListingEDP(string Search, string Row)
         {
             List<string> EDPs = new List<string>();
-            XmlTextReader reader = new XmlTextReader("http://afs-sl-schmgr03.afservice.org:8080/searchManager/search/afs-sl-schmstr.afservice.org:8080/solr4/Products/select?q=laptop&fl=EDP&store=pcmall&rows=1&start=0");
+            XmlTextReader reader = new XmlTextReader("http://afs-sl-schmgr03.afservice.org:8080/searchManager/search/afs-sl-schmstr.afservice.org:8080/solr4/Products/select?q=" + Search + "&fl=EDP&store=pcmall&rows=" + Row + "&start=0");
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
             while (reader.ReadToFollowing("result"))
             {
