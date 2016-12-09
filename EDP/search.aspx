@@ -12,13 +12,32 @@
             </div>--%>
         <div class=" row">
             <div class="col-sm-4">
-                <div class="card card-outline-primary">
-                    <%--<div class="card-header">
-                        Filter
-                    </div>--%>
+                <div class="card card-outline-danger">
+                    <div class="card-block">
+                        <asp:LinkButton ID="lnkbtn_ClearFilter" runat="server" CssClass="btn btn-link"> <i class="fa fa-times"></i>   Clear Filter</asp:LinkButton>
+                    </div>
+                </div>
+                <div class="card card-outline-success">
+                    <div class="card-header">
+                        View
+                    </div>
+                    <div class="card-block">
+                        <asp:DropDownList ID="drpdwnlst_View" runat="server" CssClass="form-control">
+                            <asp:ListItem>5</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>25</asp:ListItem>
+                            <asp:ListItem>50</asp:ListItem>
+                            <asp:ListItem>100</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        Brand
+                    </div>
                     <div class="card-block">
                         <%--<h4 class="card-title">Brand</h4>--%>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <%--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--%>
                         <asp:RadioButtonList ID="rdbtnlst_Brand" runat="server" CssClass=" radio radio-info" AutoPostBack="true">
                             <asp:ListItem>Sample One</asp:ListItem>
                             <asp:ListItem>Sample Two</asp:ListItem>
@@ -27,7 +46,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8"></div>
+            <div class="col-sm-8">
+                <div class="card card-outline-primary">
+                    <div class="card-block">
+                        <asp:PlaceHolder ID="plchldr_Prod" runat="server"></asp:PlaceHolder>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>
