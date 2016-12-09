@@ -19,7 +19,7 @@ namespace WebServiceDeserialization {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button _btnClearFilter;
+        protected global::System.Web.UI.WebControls.LinkButton _btnClearFilter;
         
         /// <summary>
         /// _rdbtnlstManufact control.

@@ -6,10 +6,8 @@
     <div class="col-sm-4">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h4>Filters</h4>
-                <asp:Button ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click" />
+                <asp:LinkButton ID="_btnClearFilter" runat="server" Text="Clear Filter" CssClass="btn btn-link" OnClick="_btnClearFilter_Click"><i class="fa fa-times"></i>   Clear Filter</asp:LinkButton>
             </div>
-            
             <div class="panel-body">
                 <asp:RadioButtonList ID="_rdbtnlstManufact" runat="server" CssClass=" radio radio-info" AutoPostBack="true" OnSelectedIndexChanged="_rdbtnlstManufact_SelectedIndexChanged"></asp:RadioButtonList>
             </div>
