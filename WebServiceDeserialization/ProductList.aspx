@@ -17,7 +17,7 @@
     <div class="col-sm-8">
         <asp:PlaceHolder ID="_plchldrProdInfo" runat="server"></asp:PlaceHolder>
     </div>
-    <script>
+    <script type="text/javascript">
         document.onkeydown = function (ev) {
             var key;
             ev = ev || event;
