@@ -11,7 +11,7 @@ namespace WebServiceDeserialization
         public List<string> ListingEDP()
         {
             List<string> EDPs = new List<string>();
-            XmlTextReader reader = new XmlTextReader("http://afs-sl-schmgr03.afservice.org:8080/searchManager/search/afs-sl-schmstr.afservice.org:8080/solr4/Products/select?q=laptop&fl=EDP&store=pcmall&rows=25&start=0");
+            XmlTextReader reader = new XmlTextReader("http://afs-sl-schmgr03.afservice.org:8080/searchManager/search/afs-sl-schmstr.afservice.org:8080/solr4/Products/select?q=laptop&fl=EDP&store=pcmall&rows=50&start=0");
             reader.WhitespaceHandling = WhitespaceHandling.Significant;
             while (reader.ReadToFollowing("result"))
             {
