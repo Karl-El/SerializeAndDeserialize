@@ -73,9 +73,12 @@ namespace WebServiceDeserialization
                         string ImageURL = reader.ReadElementString("xlg");
                         DetailString += "Image URL: ";
                         DetailString += ImageURL + "</br>";
-                        DetailString += "<img src =";
+                        DetailString += "<asp:Image ID ='_imgProd' runat = 'server' AlternateText = 'No Image' ImageUrl = ";
                         DetailString += '"' + ImageURL + '"';
-                        DetailString += " class='img-responsive img-thumbnail center-block' width='150' height='150' alt='Image Not Available'>";
+                        DetailString += "/>";
+                        //DetailString += "<img src =";
+                        //DetailString += '"' + ImageURL + '"';
+                        //DetailString += " class='img-responsive img-thumbnail center-block' width='150' height='150' onerror='this.src = 'http://www.pcm.com/mall/widgetti/images/shared/noImageMed.jpg';'>";
                     }
                 }
                 #endregion
