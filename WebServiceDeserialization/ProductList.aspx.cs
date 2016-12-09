@@ -10,6 +10,8 @@ namespace WebServiceDeserialization
 {
     public partial class ProductList : System.Web.UI.Page
     {
+        string SelectedRow = "";
+        string SearchWord = "";
         string ProdInfo = "";
         string SelectedManufact = "";
         EDPList EDPList = new EDPList();
@@ -55,7 +57,7 @@ namespace WebServiceDeserialization
         public void AllProducts()
         {
             List<string> EDPs;
-            EDPs = EDPList.ListingEDP();
+            EDPs = EDPList.ListingEDP(SearchWord,SelectedRow);
             ProdInfo = ProdDetail.AllProducts(EDPs);
             _plchldrProdInfo.Controls.Add(new LiteralControl(ProdInfo));
             //Response.Write(ProdInfo);
