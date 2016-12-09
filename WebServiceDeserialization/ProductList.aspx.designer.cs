@@ -13,33 +13,6 @@ namespace WebServiceDeserialization {
     public partial class ProductList {
         
         /// <summary>
-        /// _txtSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox _txtSearch;
-        
-        /// <summary>
-        /// _btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _btnSearch;
-        
-        /// <summary>
-        /// _drpdwnlstRow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList _drpdwnlstRow;
-        
-        /// <summary>
         /// _btnClearFilter control.
         /// </summary>
         /// <remarks>

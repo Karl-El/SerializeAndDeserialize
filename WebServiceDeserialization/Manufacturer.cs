@@ -24,7 +24,7 @@ namespace WebServiceDeserialization
                 {
                     if (reader.Name == "manufacturer")
                     {
-                        string elementstring= reader.ReadElementString("manufacturer");
+                        string elementstring = reader.ReadElementString("manufacturer");
                         Manufact.Add(elementstring);
                     }
                 }

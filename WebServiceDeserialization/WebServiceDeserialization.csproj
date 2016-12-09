@@ -71,7 +71,6 @@
     <Content Include="Images\loader3.gif" />
     <Content Include="Images\ripple.gif" />
     <Content Include="packages.config" />
-    <Content Include="ProductDetails.aspx" />
     <Content Include="ProductList.aspx" />
     <Content Include="Scripts\loadImg.js" />
     <Content Include="Scripts\modernizr.js" />
@@ -120,13 +119,6 @@
     <Compile Include="EDPList.cs" />
     <Compile Include="Manufacturer.cs" />
     <Compile Include="ProdDetail.cs" />
-    <Compile Include="ProductDetails.aspx.cs">
-      <DependentUpon>ProductDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductDetails.aspx.designer.cs">
-      <DependentUpon>ProductDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ProductList.aspx.cs">
       <DependentUpon>ProductList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
