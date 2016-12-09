@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+   <%-- <div class="container">
         <div class=" row">
             <div class="input-group">
                 <asp:TextBox ID="txt_Search" runat="server" CssClass=" form-control" />
@@ -12,5 +12,5 @@
                 </span>
             </div>
         </div>
-    </div>
+    </div>--%>
 </asp:Content>
