@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializeAndDeserializeWeb"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceDeserialization", "WebServiceDeserialization\WebServiceDeserialization.csproj", "{AD52EABA-20E9-4371-B102-FA251EBF4548}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDP", "EDP\EDP.csproj", "{62B603CF-9FD4-4432-89BF-5CE0CCB76823}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AD52EABA-20E9-4371-B102-FA251EBF4548}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD52EABA-20E9-4371-B102-FA251EBF4548}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD52EABA-20E9-4371-B102-FA251EBF4548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B603CF-9FD4-4432-89BF-5CE0CCB76823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B603CF-9FD4-4432-89BF-5CE0CCB76823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B603CF-9FD4-4432-89BF-5CE0CCB76823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B603CF-9FD4-4432-89BF-5CE0CCB76823}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
