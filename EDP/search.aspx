@@ -12,7 +12,7 @@
             </div>--%>
         <div class=" row">
             <div class="col-sm-4">
-                <div class="card card-outline-danger">
+                <div class="card card-outline-warning">
                     <div class="card-block">
                         <asp:LinkButton ID="lnkbtn_ClearFilter" runat="server" CssClass="btn btn-link"><i class="fa fa-times"></i>   Clear Filter</asp:LinkButton>
                     </div>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="col-sm-8">
-                <div class="card card-outline-primary">
+                <div class="card card-outline-secondary">
                     <div class="card-block">
                         <asp:PlaceHolder ID="plchldr_Prod" runat="server"></asp:PlaceHolder>
                     </div>

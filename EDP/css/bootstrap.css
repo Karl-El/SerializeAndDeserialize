@@ -4313,32 +4313,32 @@ tbody.collapse.in {
 }
 
 .card-outline-primary {
-  background-color: transparent;
+  /*background-color: transparent;*/
   border-color: #0275d8;
 }
 
 .card-outline-secondary {
-  background-color: transparent;
+  /*background-color: transparent;*/
   border-color: #ccc;
 }
 
 .card-outline-info {
-  background-color: transparent;
+  /*background-color: transparent;*/
   border-color: #5bc0de;
 }
 
 .card-outline-success {
-  background-color: transparent;
+  /*background-color: transparent;*/
   border-color: #5cb85c;
 }
 
 .card-outline-warning {
-  background-color: transparent;
+  /*background-color: transparent;*/
   border-color: #f0ad4e;
 }
 
 .card-outline-danger {
-  background-color: transparent;
+  /*background-color: transparent;*/
   border-color: #d9534f;
 }
 
