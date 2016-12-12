@@ -107,6 +107,7 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Detailed.cs" />
     <Compile Include="First.Master.cs">
       <DependentUpon>First.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
