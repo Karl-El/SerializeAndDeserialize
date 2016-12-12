@@ -11,7 +11,7 @@ namespace EDP
     {
         //string SelectedRow = "";
         string Information = "";
-        string q = "", rows = "1";
+        string q = "", rows = "5";
         SearchedEDP SearchedEDP = new SearchedEDP();
         DataSourceManufacturer DataSourceManufacturer = new DataSourceManufacturer();
         Detailed Detailed = new Detailed();
@@ -19,9 +19,9 @@ namespace EDP
         protected void Page_Load(object sender, EventArgs e)
         {
             q = Request.QueryString["q"];
+            Brands();
             if (!IsPostBack)
             {
-                Brands();
                 ViewAll();
             }
         }
@@ -52,7 +52,8 @@ namespace EDP
 
         public void Brands()
         {
-            List<string> Brands; List<string> EDPs;
+            List<string> Brands;
+            List<string> EDPs;
             EDPs = SearchedEDP.EDPSearching(q, rows);
             Brands = DataSourceManufacturer.ListingEDPbyManufact(EDPs);
             if (IsPostBack)

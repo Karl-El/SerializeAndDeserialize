@@ -76,13 +76,31 @@ namespace EDP {
         protected global::System.Web.UI.WebControls.Label lbl_ProdDesc;
         
         /// <summary>
-        /// Label1 control.
+        /// lbl_StockDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lbl_StockDesc;
+        
+        /// <summary>
+        /// lbl_Manufact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Manufact;
+        
+        /// <summary>
+        /// lbl_FinalPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_FinalPrice;
         
         /// <summary>
         /// drpdwnlst_Quantity control.

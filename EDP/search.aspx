@@ -14,7 +14,7 @@
             <div class="col-sm-3">
                 <div class="card card-outline-secondary">
                     <div class="card-block" style="text-align: center">
-                        <asp:LinkButton ID="lnkbtn_ClearFilter" runat="server" CssClass="btn btn-outline-danger"><i class="fa fa-times"></i> Clear Filter</asp:LinkButton>
+                        <asp:LinkButton ID="lnkbtn_ClearFilter" runat="server" CssClass="btn btn-outline-danger" Font-Size="Small"><i class="fa fa-times"></i> Clear Filter</asp:LinkButton>
                     </div>
                 </div>
                 <div class="card card-outline-secondary">
@@ -22,7 +22,7 @@
                         View
                     </div>
                     <div class="card-block">
-                        <asp:DropDownList ID="drpdwnlst_View" runat="server" CssClass="form-control" OnSelectedIndexChanged="drpdwnlst_View_SelectedIndexChanged" AutoPostBack="true">
+                        <asp:DropDownList ID="drpdwnlst_View" runat="server" CssClass="form-control" OnSelectedIndexChanged="drpdwnlst_View_SelectedIndexChanged" AutoPostBack="true" Font-Size="Small">
                             <asp:ListItem>5</asp:ListItem>
                             <asp:ListItem>10</asp:ListItem>
                             <asp:ListItem>25</asp:ListItem>
@@ -57,9 +57,11 @@
                                     <asp:Label ID="lbl_ProdName" runat="server" Text="Label">Microsoft Surface Book - Tablet - with detachable keyboard - Core i7 6600U / 2.6 GHz - Win 10 Pro 64-bit - 16 GB RAM - 512 GB SSD - 13.5" touchscreen 3000 x 2000 - GF 940M</asp:Label>
                                 </h6>
                                 <asp:Label ID="lbl_ProdDesc" runat="server" Text="Label" Font-Size="Small">Microsoft Surface Book - Tablet - with detachable keyboard - Core i7 6600U / 2.6 GHz - Win 10 Pro 64-bit - 16 GB RAM - 512 GB SSD - 13.5" touchscreen 3000 x 2000 - GF 940M</asp:Label>
+                                <p><label style="font-size:small">Availability:</label>   <asp:Label ID="lbl_StockDesc" runat="server" Text="Label" Font-Size="Small" ForeColor="#009900">In stock. Usually ships next business day.</asp:Label></p>
+                                <p><label style="font-size:small">Manufacturer:</label>   <asp:Label ID="lbl_Manufact" runat="server" Text="Label" Font-Size="Small">Dell</asp:Label></p>
                             </div>
                             <div class="col-sm-3"><br /><br />
-                                <asp:Label ID="Label1" runat="server" Text="Label" Font-Bold="True">$2,699.00</asp:Label>
+                                <asp:Label ID="lbl_FinalPrice" runat="server" Text="Label" Font-Bold="True">$2,699.00</asp:Label>
                                 <br /><br />
                                 <asp:DropDownList ID="drpdwnlst_Quantity" runat="server" CssClass="form-control" Width="75">
                                     <asp:ListItem>1</asp:ListItem>
