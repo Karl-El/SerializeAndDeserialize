@@ -38,7 +38,7 @@
                     <div class="card-block">
                         <%--<h4 class="card-title">Brand</h4>--%>
                         <%--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--%>
-                        <asp:RadioButtonList ID="rdbtnlst_Brand" runat="server" CssClass=" radio radio-info" AutoPostBack="true">
+                        <asp:RadioButtonList ID="rdbtnlst_Brand" runat="server" CssClass=" radio radio-info" AutoPostBack="True" >
                         </asp:RadioButtonList>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ namespace EDP
 {
     public partial class search : System.Web.UI.Page
     {
+        string SelectedRow = "";
         string Information = "";
         string q = "", rows = "5";
         SearchedEDP SearchedEDP = new SearchedEDP();
@@ -19,8 +20,6 @@ namespace EDP
         protected void Page_Load(object sender, EventArgs e)
         {
             q = Request.QueryString["q"];
-            EDPSearched = SearchedEDP.EDPSearching(q, rows);
-            DataSourceRadioBrand();
             if (!IsPostBack)
             {
                 ViewAll();
@@ -29,14 +28,28 @@ namespace EDP
 
         protected void drpdwnlst_View_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rows = drpdwnlst_View.SelectedValue;
-            plchldr_Prod.Controls.Add(new LiteralControl(rows));
-            rdbtnlst_Brand.Items.Clear();
-            DataSourceRadioBrand();
-            ViewAll();
+            SelectedRow = drpdwnlst_View.SelectedValue;
+            ViewByRow();
         }
 
-        public void DataSourceRadioBrand()
+
+        public void ViewAll()
+        {
+            List<string> EDPs;
+            EDPs = SearchedEDP.EDPSearching(q, rows);
+            Information = Detailed.ShowDetails(EDPs);
+            plchldr_Prod.Controls.Add(new LiteralControl(Information));
+        }
+
+        public void ViewByRow()
+        {
+            List<string> EDPs;
+            EDPs = SearchedEDP.EDPSearching(q, SelectedRow);
+            Information = Detailed.ShowDetails(EDPs);
+            plchldr_Prod.Controls.Add(new LiteralControl(Information));
+        }
+
+        public void BrandAll()
         {
             List<string> Brands;
             Brands = DataSourceManufacturer.ListingEDPbyManufact(EDPSearched);
@@ -47,14 +60,6 @@ namespace EDP
                     rdbtnlst_Brand.Items.Add(new ListItem(Brands[i]));
                 }
             }
-        }
-
-        public void ViewAll()
-        {
-            List<string> EDPs;
-            EDPs = SearchedEDP.EDPSearching(q, rows);
-            Information = Detailed.ShowDetails(EDPs);
-            plchldr_Prod.Controls.Add(new LiteralControl(Information));
         }
     }
 

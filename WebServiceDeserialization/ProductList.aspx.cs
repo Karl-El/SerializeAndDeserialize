@@ -27,18 +27,6 @@ namespace WebServiceDeserialization
             }
         }
 
-        protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
-            ProdByBrand();
-        }
-
-        protected void _btnClearFilter_Click(object sender, EventArgs e)
-        {
-            _rdbtnlstManufact.ClearSelection();
-            AllProducts();
-        }
-
         public void DataSourceRadioBrand()
         {
             List<string> ListManufact;
@@ -50,6 +38,19 @@ namespace WebServiceDeserialization
                     _rdbtnlstManufact.Items.Add(new ListItem(ListManufact[i]));
                 }
             }
+        }
+
+
+        protected void _rdbtnlstManufact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedManufact = _rdbtnlstManufact.SelectedItem.Text;
+            ProdByBrand();
+        }
+
+        protected void _btnClearFilter_Click(object sender, EventArgs e)
+        {
+            _rdbtnlstManufact.ClearSelection();
+            AllProducts();
         }
 
         public void AllProducts()
