@@ -9,7 +9,7 @@ namespace EDP
 {
     public partial class search : System.Web.UI.Page
     {
-        string SelectedRow = "";
+        //string SelectedRow = "";
         string Information = "";
         string q = "", rows = "5";
         SearchedEDP SearchedEDP = new SearchedEDP();
@@ -24,12 +24,14 @@ namespace EDP
             {
                 ViewAll();
             }
+            Brands();
         }
 
         protected void drpdwnlst_View_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedRow = drpdwnlst_View.SelectedValue;
+            rows = drpdwnlst_View.SelectedValue;
             ViewByRow();
+            Brands();
         }
 
 
@@ -44,23 +46,40 @@ namespace EDP
         public void ViewByRow()
         {
             List<string> EDPs;
-            EDPs = SearchedEDP.EDPSearching(q, SelectedRow);
+            EDPs = SearchedEDP.EDPSearching(q, rows);
             Information = Detailed.ShowDetails(EDPs);
             plchldr_Prod.Controls.Add(new LiteralControl(Information));
         }
 
-        public void BrandAll()
+        public void Brands()
         {
             List<string> Brands;
+            EDPSearched = SearchedEDP.EDPSearching(q, rows);
             Brands = DataSourceManufacturer.ListingEDPbyManufact(EDPSearched);
-            if (!IsPostBack)
+            if (IsPostBack)
             {
+                rdbtnlst_Brand.Items.Clear();
                 for (int i = 0; i < Brands.Count; i++)
                 {
                     rdbtnlst_Brand.Items.Add(new ListItem(Brands[i]));
                 }
             }
         }
+
+        //public void BrandByRow()
+        //{
+        //    List<string> Brands;
+        //    EDPSearched = SearchedEDP.EDPSearching(q, SelectedRow);
+        //    Brands = DataSourceManufacturer.ListingEDPbyManufact(EDPSearched);
+        //    if (IsPostBack)
+        //    {
+        //        rdbtnlst_Brand.Items.Clear();
+        //        for (int i = 0; i < Brands.Count; i++)
+        //        {
+        //            rdbtnlst_Brand.Items.Add(new ListItem(Brands[i]));
+        //        }
+        //    }
+        //}
     }
 
 }
