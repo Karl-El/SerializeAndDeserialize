@@ -7,17 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace EDP
 {
-    public partial class First : System.Web.UI.MasterPage
+    public partial class _default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void lnbtn_Search_Click(object sender, EventArgs e)
-        {
-            string q = txt_Search.Text.Trim();
-            Response.Redirect("search.aspx?q=" + q);
         }
     }
 }

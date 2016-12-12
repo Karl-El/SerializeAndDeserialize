@@ -12,17 +12,17 @@
             </div>--%>
         <div class=" row">
             <div class="col-sm-4">
-                <div class="card card-outline-warning">
-                    <div class="card-block">
-                        <asp:LinkButton ID="lnkbtn_ClearFilter" runat="server" CssClass="btn btn-link"><i class="fa fa-times"></i>   Clear Filter</asp:LinkButton>
+                <div class="card card-outline-secondary">
+                    <div class="card-block" style="text-align:center">
+                        <asp:LinkButton ID="lnkbtn_ClearFilter" runat="server" CssClass="btn btn-outline-danger"><i class="fa fa-times"></i> Clear Filter</asp:LinkButton>
                     </div>
                 </div>
-                <div class="card card-outline-success">
+                <div class="card card-outline-secondary">
                     <div class="card-header">
-                        View
+                       View
                     </div>
                     <div class="card-block">
-                        <asp:DropDownList ID="drpdwnlst_View" runat="server" CssClass="form-control">
+                        <asp:DropDownList ID="drpdwnlst_View" runat="server" CssClass="form-control" OnSelectedIndexChanged="drpdwnlst_View_SelectedIndexChanged" AutoPostBack="true">
                             <asp:ListItem>5</asp:ListItem>
                             <asp:ListItem>10</asp:ListItem>
                             <asp:ListItem>25</asp:ListItem>
@@ -31,7 +31,7 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                <div class="card card-outline-info">
+                <div class="card card-outline-secondary">
                     <div class="card-header">
                         Brand
                     </div>
@@ -39,9 +39,6 @@
                         <%--<h4 class="card-title">Brand</h4>--%>
                         <%--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--%>
                         <asp:RadioButtonList ID="rdbtnlst_Brand" runat="server" CssClass=" radio radio-info" AutoPostBack="true">
-                            <asp:ListItem>Sample One</asp:ListItem>
-                            <asp:ListItem>Sample Two</asp:ListItem>
-                            <asp:ListItem>Sample Three</asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
                 </div>
