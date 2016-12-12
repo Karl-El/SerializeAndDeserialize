@@ -24,7 +24,10 @@ namespace EDP
             {
                 ViewAll();
             }
-            Brands();
+            else
+            {
+                Brands();
+            }
         }
 
         protected void drpdwnlst_View_SelectedIndexChanged(object sender, EventArgs e)
