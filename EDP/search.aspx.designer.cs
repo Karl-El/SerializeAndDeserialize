@@ -40,6 +40,33 @@ namespace EDP {
         protected global::System.Web.UI.WebControls.RadioButtonList rdbtnlst_Brand;
         
         /// <summary>
+        /// img_Prod control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image img_Prod;
+        
+        /// <summary>
+        /// lbl_ProdName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_ProdName;
+        
+        /// <summary>
+        /// lbl_ProdDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_ProdDesc;
+        
+        /// <summary>
         /// plchldr_Prod control.
         /// </summary>
         /// <remarks>
