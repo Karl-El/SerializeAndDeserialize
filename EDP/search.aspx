@@ -77,6 +77,7 @@
                 </div>
                 <div class="card card-outline-secondary">
                     <div class="card-block">
+
                         <asp:PlaceHolder ID="plchldr_Prod" runat="server"></asp:PlaceHolder>
                     </div>
                 </div>
