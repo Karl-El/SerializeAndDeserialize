@@ -19,9 +19,9 @@ namespace EDP
         protected void Page_Load(object sender, EventArgs e)
         {
             q = Request.QueryString["q"];
-            Brands();
             if (!IsPostBack)
             {
+                BrandsPageLoad();
                 ViewAll();
             }
         }
@@ -57,6 +57,22 @@ namespace EDP
             EDPs = SearchedEDP.EDPSearching(q, rows);
             Brands = DataSourceManufacturer.ListingEDPbyManufact(EDPs);
             if (IsPostBack)
+            {
+                rdbtnlst_Brand.Items.Clear();
+                for (int i = 0; i < Brands.Count; i++)
+                {
+                    rdbtnlst_Brand.Items.Add(new ListItem(Brands[i]));
+                }
+            }
+        }
+
+        public void BrandsPageLoad()
+        {
+            List<string> Brands;
+            List<string> EDPs;
+            EDPs = SearchedEDP.EDPSearching(q, rows);
+            Brands = DataSourceManufacturer.ListingEDPbyManufact(EDPs);
+            if (!IsPostBack)
             {
                 rdbtnlst_Brand.Items.Clear();
                 for (int i = 0; i < Brands.Count; i++)
