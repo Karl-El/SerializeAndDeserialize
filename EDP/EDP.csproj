@@ -115,6 +115,7 @@
     <Compile Include="First.Master.designer.cs">
       <DependentUpon>First.Master</DependentUpon>
     </Compile>
+    <Compile Include="Information.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="search.aspx.cs">
       <DependentUpon>search.aspx</DependentUpon>
