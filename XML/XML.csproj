@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{62B603CF-9FD4-4432-89BF-5CE0CCB76823}</ProjectGuid>
+    <ProjectGuid>{70068B5A-C1AC-4079-9132-FC2E9D23F501}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EDP</RootNamespace>
-    <AssemblyName>EDP</AssemblyName>
+    <RootNamespace>XML</RootNamespace>
+    <AssemblyName>XML</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -66,16 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap-3.css" />
-    <Content Include="default.aspx" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="packages.config" />
-    <Content Include="First.Master" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -84,48 +75,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap-flex.css" />
-    <Content Include="css\bootstrap-grid.css" />
-    <Content Include="css\bootstrap-reboot.css" />
-    <Content Include="css\bootstrap-4.css" />
-    <Content Include="css\checkbox.css" />
-    <Content Include="css\font-awesome.css" />
-    <Content Include="css\site.css" />
-    <Content Include="images\box.gif" />
-    <Content Include="images\pcm-logo-lg.png" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\jquery-3.1.1.js" />
-    <Content Include="js\tether.js" />
-    <Content Include="search.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSourceManufacturer.cs" />
-    <Compile Include="default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Detailed.cs" />
-    <Compile Include="First.Master.cs">
-      <DependentUpon>First.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="First.Master.designer.cs">
-      <DependentUpon>First.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Information.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="search.aspx.cs">
-      <DependentUpon>search.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="search.aspx.designer.cs">
-      <DependentUpon>search.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SearchedEDP.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -140,9 +93,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50508</DevelopmentServerPort>
+          <DevelopmentServerPort>54845</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50179/</IISUrl>
+          <IISUrl>http://localhost:54845/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

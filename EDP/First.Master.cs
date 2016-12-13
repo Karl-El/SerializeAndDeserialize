@@ -19,5 +19,6 @@ namespace EDP
             string q = txt_Search.Text.Trim();
             Response.Redirect("search.aspx?q=" + q);
         }
+
     }
 }
